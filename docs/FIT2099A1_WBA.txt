@@ -1,0 +1,70 @@
+REQ1: Let it grow!:
+-----------------
+Member: Jack
+
+Deliverables: Class, Interaction & Rationale
+
+Date: 04/04/2022
+
+
+REQ2: Jump Up, Super Star!
+-----------------
+Member: Jack
+
+Deliverables: Class, Interaction & Rationale
+
+Date: 07/04/2022
+
+
+REQ3: Enemies
+-----------------
+
+Member: Joel
+
+Deliverables: Class, Interaction & Rationale
+
+Date: 04/04/2022
+
+
+REQ4: Magical Items
+-----------------
+
+Member: Joel
+
+Deliverables: Class, Interaction & Rationale
+
+Date: 07/04/2022
+
+
+REQ5: Trading
+-----------------
+
+Member: Yepu
+
+Deliverables: Class, Interaction & Rationale
+
+Date: 04/04/2022
+
+
+REQ6: Monologue
+-----------------
+
+Member: Yepu
+
+Deliverables: Class, Interaction & Rationale
+
+Date: 07/04/2022
+
+
+REQ7: Reset Game
+-----------------
+Member/s: Jack, Joel & Yepu
+
+Deliverables:
+Jack - Interaction
+Joel - Rationale
+Yepu - Class
+
+Date: 09/04/2022
+
+Joel - I ACCEPT THIS WBA
