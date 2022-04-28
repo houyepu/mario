@@ -5,6 +5,7 @@ import java.util.List;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
@@ -54,8 +55,8 @@ public class Application {
 			gameMap.at(35, 10).addActor(new Goomba());
 			gameMap.at(45,10).addActor(new Toad());
 			// Testing out the coin
-			gameMap.at(42,11).addItem(new Coin("coin",'$',true,20));
+			Item coin = new Coin("coin",'$',true,20);
+			gameMap.at(42,11).addItem(coin);
 			world.run();
-
 	}
 }
