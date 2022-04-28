@@ -1,5 +1,5 @@
 package game.wallet;
 
 public class Wallet {
-    private int money = 0;
+    private int wallet = 0;
 }

@@ -53,10 +53,23 @@ public class Application {
 
 			// FIXME: the Goomba should be generated from the Tree
 			gameMap.at(35, 10).addActor(new Goomba());
+
+			// Toad
 			gameMap.at(45,10).addActor(new Toad());
+
 			// Testing out the coin
-			Item coin = new Coin("coin",'$',true,20);
+			Coin coin = new Coin("coin",'$',true,20);
 			gameMap.at(42,11).addItem(coin);
+
+			// Testing out the wallet going to move to wallet class later
+			int wallet = 0;
+			for(int i = 0; i<mario.getInventory().size(); i++){
+				if(mario.getInventory().get(i) == coin){
+					wallet += coin.getValue();
+				}
+			}
+
+
 			world.run();
 	}
 }
