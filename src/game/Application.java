@@ -8,6 +8,8 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
+import game.toad.Toad;
+import game.wallet.Coin;
 
 /**
  * The main class for the Mario World game.
@@ -51,6 +53,8 @@ public class Application {
 			// FIXME: the Goomba should be generated from the Tree
 			gameMap.at(35, 10).addActor(new Goomba());
 			gameMap.at(45,10).addActor(new Toad());
+			// Testing out the coin
+			gameMap.at(42,11).addItem(new Coin("coin",'$',true,20));
 			world.run();
 
 	}
