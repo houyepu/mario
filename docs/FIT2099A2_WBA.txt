@@ -1,0 +1,46 @@
+REQ1: Let it grow! & REQ2: Jump Up, Super Star
+-----------------------------------------------
+Member: Jack
+
+Deliverables:
+
+30/04/2022 - Class structure
+01/05/2022 - Implementation in application
+02/05/2022 - Refine and test
+
+
+REQ3: Enemies & REQ4: Magical Items
+------------------------------------
+
+Member: Joel
+
+Deliverables:
+
+30/04/2022 - Class structure
+01/05/2022 - Implementation in application
+02/05/2022 - Refine and test
+
+
+REQ5: Trading & REQ6: Monologue
+--------------------------------
+
+Member: Yepu
+
+Deliverables:
+
+30/04/2022 - Class structure
+01/05/2022 - Implementation in application
+02/05/2022 - Refine and test
+
+
+REQ7: Reset Game
+-----------------
+Member/s: Jack, Joel & Yepu
+
+Deliverables:
+
+30/04/2022 - Class structure
+01/05/2022 - Implementation in application
+02/05/2022 - Refine and test
+
+Joel - I ACCEPT THIS WBA
