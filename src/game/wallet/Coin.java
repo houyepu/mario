@@ -1,7 +1,9 @@
 package game.wallet;
 
 import edu.monash.fit2099.engine.actions.Action;
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
+import edu.monash.fit2099.engine.items.PickUpItemAction;
 
 
 public class Coin extends Item {
@@ -15,5 +17,10 @@ public class Coin extends Item {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public PickUpItemAction getPickUpAction(Actor actor) {
+        return new PickUpCoinAction(this);
     }
 }
