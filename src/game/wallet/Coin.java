@@ -23,4 +23,6 @@ public class Coin extends Item {
     public PickUpItemAction getPickUpAction(Actor actor) {
         return new PickUpCoinAction(this);
     }
+
+
 }

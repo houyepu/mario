@@ -4,9 +4,12 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.wallet.Coin;
+
+import java.util.List;
 
 /**
  * Class representing the Player.
@@ -14,6 +17,8 @@ import game.wallet.Coin;
 public class Player extends Actor {
 
 	private final Menu menu = new Menu();
+
+	private int wallet;
 	/**
 	 * Constructor.
 	 *
@@ -39,5 +44,18 @@ public class Player extends Actor {
 	@Override
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
+	}
+
+	@Override
+	public List<Item> getInventory() {
+		return super.getInventory();
+	}
+
+	public void setWallet(int wallet) {
+		this.wallet = wallet;
+	}
+
+	public int getWallet() {
+		return wallet;
 	}
 }

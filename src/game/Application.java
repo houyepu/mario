@@ -61,6 +61,7 @@ public class Application {
 			Coin coin = new Coin("coin",'$',true,20);
 			gameMap.at(42,11).addItem(coin);
 
+
 			world.run();
 	}
 }
