@@ -18,7 +18,7 @@ public class Player extends Actor {
 
 	private final Menu menu = new Menu();
 
-	private int wallet;
+	public static int wallet;
 	/**
 	 * Constructor.
 	 *
@@ -29,6 +29,7 @@ public class Player extends Actor {
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
+		this.wallet = 0;
 	}
 
 	@Override
@@ -51,11 +52,8 @@ public class Player extends Actor {
 		return super.getInventory();
 	}
 
-	public void setWallet(int wallet) {
-		this.wallet = wallet;
-	}
 
-	public int getWallet() {
-		return wallet;
-	}
+
+
+
 }

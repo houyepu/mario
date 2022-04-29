@@ -9,7 +9,6 @@ import game.Player;
 public class PickUpCoinAction extends PickUpItemAction {
     private final Coin coin;
     private int Value;
-    private Player player;
 
     public PickUpCoinAction(Coin coin) {
         super(coin);
@@ -20,8 +19,8 @@ public class PickUpCoinAction extends PickUpItemAction {
     public String execute(Actor actor, GameMap map) {
         map.locationOf(actor).removeItem(coin);
         actor.addItemToInventory(coin);
-        Value +=player.getWallet() + coin.getValue();
-        player.setWallet(Value);
+        Player.wallet += coin.getValue();
+        System.out.println(Player.wallet);
         return menuDescription(actor);
     }
 }
