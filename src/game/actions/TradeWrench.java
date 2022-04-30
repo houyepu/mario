@@ -2,9 +2,11 @@ package game.actions;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.consumables.SuperMushroom;
 
+// POSTPONDING WAITING FOR WRENCH TO BE CREATED
 /**
- * Trade with toad action
+ * Trade wrench with the toad
  */
 public class TradeWrench extends Action{
     /**
@@ -12,6 +14,7 @@ public class TradeWrench extends Action{
      */
     private final Actor toad;
 
+    private int price = 200;
     /**
      * Constutoring a toad
      * @param toad
@@ -19,7 +22,6 @@ public class TradeWrench extends Action{
     public TradeWrench(Actor toad) {
         this.toad = toad;
     }
-
 
 
     /**

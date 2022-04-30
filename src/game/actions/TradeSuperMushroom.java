@@ -2,15 +2,21 @@ package game.actions;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.Player;
+import game.consumables.PowerStar;
+import game.consumables.SuperMushroom;
 
 /**
- * Trade with toad action
+ * Trade toad with a super mushroom
  */
 public class TradeSuperMushroom extends Action{
+
     /**
      * toad
      */
     private final Actor toad;
+
+    private int price = 400;
 
     /**
      * Constutoring a toad
@@ -20,7 +26,8 @@ public class TradeSuperMushroom extends Action{
         this.toad = toad;
     }
 
-
+    // Making a superMushroom to test trading
+    SuperMushroom superMushroom = new SuperMushroom("Super Mushroom",'^',true);
 
     /**
      * Trade with toad
@@ -30,7 +37,15 @@ public class TradeSuperMushroom extends Action{
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        return null;
+        if (Player.wallet < price){
+            return "Not enough money to buy a super mushroom";
+        }
+        else {
+            actor.addItemToInventory(superMushroom);
+            Player.wallet -= price;
+            System.out.println("now player has"+actor.getInventory());
+            return "Thanks for purchasing super mushroom";
+        }
     }
 
     /**

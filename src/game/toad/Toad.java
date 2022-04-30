@@ -18,6 +18,7 @@ import game.actions.TradeWrench;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
  * Toad that speaks to the player and sells drugs :)
  */
@@ -54,7 +55,7 @@ public class Toad extends Actor {
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
-        // Toad has two actions
+        // Toad has 4 actions
         actions.add(new MonologueAction(this));
         actions.add(new TradePowerStar(this));
         actions.add(new TradeSuperMushroom(this));
