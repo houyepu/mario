@@ -9,22 +9,23 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Random;
 
 /**
  * A little fungus guy.
  */
 public class Goomba extends Enemy {
     private final int suicideRate = 10;
+    protected Random rand = new Random();
 
     /**
      * Constructor.
      */
-    public Goomba() {
-        super("Goomba", 'g', 20);
-        this.behaviours.put(10, new WanderBehaviour());
-        this.behaviours.put(20, new AttackBehaviour());
+    public Goomba(Actor target) {
+        super("Goomba", 'g', 20, target);
+        this.behaviours.put(10, new AttackBehaviour(target));
+        this.behaviours.put(20, new FollowBehaviour(target));
+        this.behaviours.put(30, new WanderBehaviour());
     }
 
     @Override

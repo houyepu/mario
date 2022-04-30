@@ -52,7 +52,7 @@ public class Application {
 			world.addPlayer(mario, gameMap.at(42, 10));
 
 			// FIXME: the Goomba should be generated from the Tree
-			gameMap.at(35, 10).addActor(new Goomba());
+			gameMap.at(35, 10).addActor(new Goomba(mario));
 
 			// Toad
 			gameMap.at(45,10).addActor(new Toad());
