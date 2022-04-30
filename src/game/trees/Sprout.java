@@ -1,4 +1,10 @@
 package game.trees;
 
-public class Sprout extends TreeAbstract{
+import edu.monash.fit2099.engine.positions.Ground;
+
+public class Sprout extends TreeAbstract {
+
+    public Sprout() {
+        super('+');
+    }
 }

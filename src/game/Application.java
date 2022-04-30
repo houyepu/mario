@@ -10,6 +10,9 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 import game.enemies.Goomba;
 import game.toad.Toad;
+import game.trees.Mature;
+import game.trees.Sapling;
+import game.trees.Sprout;
 import game.wallet.Coin;
 
 /**
@@ -22,7 +25,7 @@ public class Application {
 
 			World world = new World(new Display());
 
-			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Tree());
+			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Mature(), new Sapling(), new Sprout());
 
 			List<String> map = Arrays.asList(
 				"..........................................##..........+.........................",

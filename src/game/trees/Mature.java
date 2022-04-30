@@ -1,4 +1,11 @@
 package game.trees;
 
-public class Mature extends TreeAbstract{
+
+import edu.monash.fit2099.engine.positions.Ground;
+
+public class Mature extends Ground {
+
+    public Mature() {
+        super('T');
+    }
 }
