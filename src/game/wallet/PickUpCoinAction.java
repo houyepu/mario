@@ -1,20 +1,34 @@
 package game.wallet;
 
-
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.PickUpItemAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
 
+/**
+ * A class designed specifically for picking up coin
+ */
 public class PickUpCoinAction extends PickUpItemAction {
+    /**
+     * Coin attribute
+     */
     private final Coin coin;
-    private int Value;
 
+    /**
+     * New pick up action specifically for picking up coin
+     * @param coin
+     */
     public PickUpCoinAction(Coin coin) {
         super(coin);
         this.coin = coin;
     }
 
+    /**
+     * Override exisiting method of execute
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         map.locationOf(actor).removeItem(coin);

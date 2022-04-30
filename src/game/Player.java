@@ -18,6 +18,10 @@ public class Player extends Actor {
 
 	private final Menu menu = new Menu();
 
+	/**
+	 * This is a global attribute of wallet. Because we think that for the design requirement there will only be one player hence this
+	 * means that one player can only have one single wallet. Therefore it is easier to make wallet a global var.
+	 */
 	public static int wallet;
 	/**
 	 * Constructor.
@@ -46,14 +50,5 @@ public class Player extends Actor {
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
 	}
-
-	@Override
-	public List<Item> getInventory() {
-		return super.getInventory();
-	}
-
-
-
-
 
 }
