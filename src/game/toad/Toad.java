@@ -11,7 +11,9 @@ import game.AttackAction;
 import game.Behaviour;
 import game.Status;
 import game.actions.MonologueAction;
-import game.actions.TradeWithToadAction;
+import game.actions.TradePowerStar;
+import game.actions.TradeSuperMushroom;
+import game.actions.TradeWrench;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,13 +44,21 @@ public class Toad extends Actor {
         return new DoNothingAction();
     }
 
+    /**
+     * Toad can talk to the player and trade with the player
+     * @param otherActor the Actor that might be performing attack
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return
+     */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
-        // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-
+        // Toad has two actions
         actions.add(new MonologueAction(this));
-        actions.add(new TradeWithToadAction(this));
+        actions.add(new TradePowerStar(this));
+        actions.add(new TradeSuperMushroom(this));
+        actions.add(new TradeWrench(this));
 
         return actions;
     }

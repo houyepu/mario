@@ -4,31 +4,33 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 
 /**
- * Toad is speaking to the player
+ * Trade with toad action
  */
-public class MonologueAction extends Action{
+public class TradeWrench extends Action{
     /**
-     * A frog boi
+     * toad
      */
     private final Actor toad;
 
     /**
-     * Constructing a toad
+     * Constutoring a toad
      * @param toad
      */
-    public MonologueAction(Actor toad) {
+    public TradeWrench(Actor toad) {
         this.toad = toad;
     }
 
+
+
     /**
-     * Speak something
+     * Trade with toad
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        return "Why are you gae?";
+        return null;
     }
 
     /**
@@ -38,6 +40,6 @@ public class MonologueAction extends Action{
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Wanna hear something?";
+        return "Mario buys Wrench for ($200)";
     }
 }
