@@ -11,10 +11,10 @@ import game.*;
 
 public class Koopa extends Enemy {
 
-    public Koopa(Actor target) {
+    public Koopa() {
         super("Koopa", 'K', 100);
-        this.behaviours.put(10, new AttackBehaviour(target));
-        this.behaviours.put(20, new FollowBehaviour(target));
+        this.behaviours.put(10, new AttackBehaviour(Player.player));
+        this.behaviours.put(20, new FollowBehaviour(Player.player));
         this.behaviours.put(30, new WanderBehaviour());
     }
 
