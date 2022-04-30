@@ -12,4 +12,5 @@ public abstract class TreeAbstract extends Ground {
     public TreeAbstract(char displayChar) {
         super(displayChar);
     }
+
 }
