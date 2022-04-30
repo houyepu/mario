@@ -28,7 +28,7 @@ public class MonologueAction extends Action{
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        return "Why are you gae?";
+        return "*begins beatboxing*";
     }
 
     /**
