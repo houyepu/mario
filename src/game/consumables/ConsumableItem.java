@@ -2,7 +2,7 @@ package game.consumables;
 
 import edu.monash.fit2099.engine.items.Item;
 
-public class ConsumableItem extends Item implements Consumable {
+public abstract class ConsumableItem extends Item implements Consumable {
     /***
      * Constructor.
      *  @param name the name of this Item
@@ -11,5 +11,10 @@ public class ConsumableItem extends Item implements Consumable {
      */
     public ConsumableItem(String name, char displayChar, boolean portable) {
         super(name, displayChar, portable);
+    }
+
+    @Override
+    public void consume() {
+
     }
 }

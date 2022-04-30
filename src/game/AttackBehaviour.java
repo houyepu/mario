@@ -15,7 +15,6 @@ public class AttackBehaviour implements Behaviour {
         this.player = actor;
     }
 
-    // TODO: develop and use it to attack the player automatically.
     @Override
     public Action getAction(Actor actor, GameMap map) {
         if(!map.contains(player) || !map.contains(actor))

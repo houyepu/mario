@@ -66,6 +66,8 @@ public class Application {
 
 			gameMap.at(42,12).addItem(coin);
 
+			// Test for wrench
+			gameMap.at(42,7).addItem(new Wrench());
 
 			world.run();
 	}
