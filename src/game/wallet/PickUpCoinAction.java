@@ -34,7 +34,7 @@ public class PickUpCoinAction extends PickUpItemAction {
         map.locationOf(actor).removeItem(coin);
         actor.addItemToInventory(coin);
         Player.wallet += coin.getValue();
-        System.out.println(Player.wallet);
+        System.out.println("Player now has:$"+Player.wallet);
         return menuDescription(actor);
     }
 }
