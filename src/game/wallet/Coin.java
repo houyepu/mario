@@ -2,8 +2,11 @@ package game.wallet;
 
 
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.items.DropItemAction;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.items.PickUpItemAction;
+import game.actions.DropCoinAction;
+import game.actions.PickUpCoinAction;
 
 /**
  * Coin is designed as an item
@@ -43,6 +46,8 @@ public class Coin extends Item {
     public PickUpItemAction getPickUpAction(Actor actor) {
         return new PickUpCoinAction(this);
     }
+
+    public DropItemAction getDropAction(Actor actor) { return new DropCoinAction(this); }
 
 
 }

@@ -1,9 +1,10 @@
-package game.wallet;
+package game.actions;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.PickUpItemAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
+import game.wallet.Coin;
 
 /**
  * A class designed specifically for picking up coin
