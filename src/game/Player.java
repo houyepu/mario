@@ -23,6 +23,8 @@ public class Player extends Actor {
 	 * means that one player can only have one single wallet. Therefore it is easier to make wallet a global var.
 	 */
 	public static int wallet;
+
+	public static Player player;
 	/**
 	 * Constructor.
 	 *
@@ -34,6 +36,7 @@ public class Player extends Actor {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		this.wallet = 1000;
+		this.player = this;
 	}
 
 	@Override

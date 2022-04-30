@@ -27,7 +27,7 @@ public class TradeSuperMushroom extends Action{
     }
 
     // Making a superMushroom to test trading
-    SuperMushroom superMushroom = new SuperMushroom("Super Mushroom",'^',true);
+    SuperMushroom superMushroom = new SuperMushroom();
 
     /**
      * Trade with toad

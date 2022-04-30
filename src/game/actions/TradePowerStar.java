@@ -30,7 +30,7 @@ public class TradePowerStar extends Action{
     }
 
     // Making a powerstar to test trading
-    PowerStar powerStar = new PowerStar("powerstar",'*',true);
+    PowerStar powerStar = new PowerStar();
 
     /**
      * Trade with toad for power star
