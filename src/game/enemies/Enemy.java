@@ -20,4 +20,8 @@ public abstract class Enemy extends Actor {
     public Enemy(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
     }
+
+    public Map<Integer, Behaviour> getBehaviours() {
+        return behaviours;
+    }
 }

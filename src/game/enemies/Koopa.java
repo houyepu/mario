@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.*;
+import game.consumables.SuperMushroom;
 
 public class Koopa extends Enemy {
 
@@ -16,6 +17,7 @@ public class Koopa extends Enemy {
         this.behaviours.put(10, new AttackBehaviour(Player.player));
         this.behaviours.put(20, new FollowBehaviour(Player.player));
         this.behaviours.put(30, new WanderBehaviour());
+        this.addItemToInventory(new SuperMushroom());
     }
 
     @Override
@@ -30,6 +32,7 @@ public class Koopa extends Enemy {
         if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this, direction));
             actions.add(new ExecuteAction(this, direction));
+            this.addCapability(Status.DORMANT);
         }
         return actions;
     }
@@ -42,5 +45,15 @@ public class Koopa extends Enemy {
                 return action;
         }
         return new DoNothingAction();
+    }
+
+    @Override
+    public char getDisplayChar() {
+        if (!isConscious()) {
+            return 'D';
+        }
+        else {
+            return super.getDisplayChar();
+        }
     }
 }

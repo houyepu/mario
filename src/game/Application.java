@@ -11,6 +11,7 @@ import edu.monash.fit2099.engine.positions.World;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
 import game.enemies.Goomba;
+import game.enemies.Koopa;
 import game.toad.Toad;
 import game.trees.Mature;
 import game.trees.Sapling;
@@ -57,9 +58,9 @@ public class Application {
 
 			world.addPlayer(mario, gameMap.at(42, 10));
 
-			gameMap.at(34, 10).addActor(new Goomba());
+			//gameMap.at(34, 10).addActor(new Goomba());
+			gameMap.at(35, 10).addActor(new Koopa());
 
-			// FIXME: the Goomba should be generated from the Tree
 			//gameMap.at(35, 10).addActor(new Goomba());
 
 			// Toad

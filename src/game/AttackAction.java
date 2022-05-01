@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.Weapon;
+import game.enemies.Koopa;
 
 /**
  * Special Action for attacking other Actors.
@@ -51,7 +52,7 @@ public class AttackAction extends Action {
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 		target.hurt(damage);
-		if (!target.isConscious()) {
+		if (!target.isConscious() && !target.hasCapability(Status.DORMANT)) {
 			ActionList dropActions = new ActionList();
 			// drop all items
 			for (Item item : target.getInventory())
@@ -61,6 +62,10 @@ public class AttackAction extends Action {
 			// remove actor
 			map.removeActor(target);
 			result += System.lineSeparator() + target + " is killed.";
+		}
+		else if (!target.isConscious() && target.hasCapability(Status.DORMANT)){
+			((Koopa) target).getBehaviours().clear();
+			result += System.lineSeparator() + target + " is dormant.";
 		}
 
 		return result;

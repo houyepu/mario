@@ -18,8 +18,4 @@ public class SuperMushroom extends ConsumableItem{
         Player.player.increaseMaxHp(50);
         Player.player.addCapability(Status.TALL);
     }
-
-    //Replace the normal item drop action
-    @Override
-    public DropItemAction getDropAction(Actor actor) { return new DropSuperMushroomAction(this);}
 }
