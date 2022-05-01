@@ -49,6 +49,22 @@ public class AttackAction extends Action {
 			return actor + " misses " + target + ".";
 		}
 
+		if (target.hasCapability(Status.STARPOWERED)) {
+			return actor + " can't hit the invincible " + target + ".";
+		}
+
+		if (actor.hasCapability(Status.STARPOWERED)) {
+			ActionList dropActions = new ActionList();
+			// drop all items
+			for (Item item : target.getInventory())
+				dropActions.add(item.getDropAction(actor));
+			for (Action drop : dropActions)
+				drop.execute(target, map);
+			// remove actor
+			map.removeActor(target);
+			return "The target cannot withstand the force of the Power Star";
+		}
+
 		int damage = weapon.damage();
 		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
 		target.hurt(damage);
