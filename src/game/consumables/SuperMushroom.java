@@ -1,8 +1,11 @@
 package game.consumables;
 
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.items.DropItemAction;
 import game.Player;
 import game.Status;
+import game.actions.DropPowerStarAction;
+import game.actions.DropSuperMushroomAction;
 
 public class SuperMushroom extends ConsumableItem{
     public SuperMushroom() {
@@ -15,4 +18,8 @@ public class SuperMushroom extends ConsumableItem{
         Player.player.increaseMaxHp(50);
         Player.player.addCapability(Status.TALL);
     }
+
+    //Replace the normal item drop action
+    @Override
+    public DropItemAction getDropAction(Actor actor) { return new DropSuperMushroomAction(this);}
 }
