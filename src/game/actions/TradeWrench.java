@@ -2,6 +2,8 @@ package game.actions;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.Player;
+import game.Wrench;
 import game.consumables.SuperMushroom;
 
 // POSTPONDING WAITING FOR WRENCH TO BE CREATED
@@ -24,6 +26,8 @@ public class TradeWrench extends Action{
     }
 
 
+    //making wrench for testing
+    Wrench wrench = new Wrench();
     /**
      * Trade with toad
      * @param actor The actor performing the action.
@@ -32,7 +36,15 @@ public class TradeWrench extends Action{
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        return null;
+        if (Player.wallet < price){
+            return "Not enough money to buy a wrench";
+        }
+        else {
+            actor.addItemToInventory(wrench);
+            Player.wallet -= price;
+            System.out.println("now player has"+actor.getInventory());
+            return "Thanks for purchasing wrench";
+        }
     }
 
     /**
