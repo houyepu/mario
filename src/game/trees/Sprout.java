@@ -8,7 +8,9 @@ import game.enemies.Goomba;
 import java.util.Random;
 
 public class Sprout extends TreeAbstract {
-    Random rand = new Random();
+    private static int goombaSpawnCount = 0;
+    private static final int GOOMBA_SPAWN_LIMIT = 10;
+    private final Random rand = new Random();
 
 
     public Sprout() {
@@ -25,12 +27,13 @@ public class Sprout extends TreeAbstract {
             System.out.println("SPROUTS GROW UP"); //testing purposes only
             location.setGround(new Sapling());
         }
-        /*if (rand.nextInt(100) <= 10) {
+        if (rand.nextInt(100) <= 10 && goombaSpawnCount <= GOOMBA_SPAWN_LIMIT) {
             if (!location.containsAnActor()) {
                 location.addActor(new Goomba());
+                goombaSpawnCount++;
                 System.out.println("Goomba spawned:");
             }
-        }*/
+        }
 
     }
 }
