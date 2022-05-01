@@ -45,7 +45,6 @@ public class Player extends Actor {
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
-		actions.add(new ResetAction());
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}

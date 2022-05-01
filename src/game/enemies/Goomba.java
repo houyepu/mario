@@ -26,7 +26,6 @@ public class Goomba extends Enemy {
         this.behaviours.put(10, new AttackBehaviour(Player.player));
         this.behaviours.put(20, new FollowBehaviour(Player.player));
         this.behaviours.put(30, new WanderBehaviour());
-
     }
 
     @Override
@@ -61,8 +60,6 @@ public class Goomba extends Enemy {
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        // TODO: Make Goomba Commit
-
         for (Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)

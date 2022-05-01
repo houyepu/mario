@@ -1,6 +1,7 @@
 package game.consumables;
 
 import edu.monash.fit2099.engine.items.Item;
+import game.Player;
 
 public abstract class ConsumableItem extends Item implements Consumable {
     /***
@@ -11,10 +12,11 @@ public abstract class ConsumableItem extends Item implements Consumable {
      */
     public ConsumableItem(String name, char displayChar, boolean portable) {
         super(name, displayChar, portable);
+        this.addAction(new ConsumeAction(this));
     }
 
     @Override
     public void consume() {
-
+        Player.player.removeItemFromInventory(this);
     }
 }
