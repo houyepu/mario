@@ -50,4 +50,5 @@ public class Coin extends Item {
     public DropItemAction getDropAction(Actor actor) { return new DropCoinAction(this); }
 
 
+
 }

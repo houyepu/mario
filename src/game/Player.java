@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
+import game.actions.ResetAction;
 import game.wallet.Coin;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class Player extends Actor {
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
-
+		actions.add(new ResetAction());
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}
