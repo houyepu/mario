@@ -1,8 +1,6 @@
 package game.trees;
 
-import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
-import game.Player;
 import game.enemies.Goomba;
 
 import java.util.Random;
@@ -31,7 +29,7 @@ public class Sprout extends TreeAbstract {
             if (!location.containsAnActor()) {
                 location.addActor(new Goomba());
                 goombaSpawnCount++;
-                System.out.println("Goomba spawned:");
+                System.out.println("Goomba spawned");
             }
         }
 
