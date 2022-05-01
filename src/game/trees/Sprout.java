@@ -25,12 +25,12 @@ public class Sprout extends TreeAbstract {
             System.out.println("SPROUTS GROW UP"); //testing purposes only
             location.setGround(new Sapling());
         }
-        if (rand.nextInt(100) <= 10) {
+        /*if (rand.nextInt(100) <= 10) {
             if (!location.containsAnActor()) {
                 location.addActor(new Goomba());
                 System.out.println("Goomba spawned:");
             }
-        }
+        }*/
 
     }
 }
