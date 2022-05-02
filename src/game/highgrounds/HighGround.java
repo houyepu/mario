@@ -76,13 +76,10 @@ public abstract class HighGround extends Ground {
     @Override
     public void tick(Location location) {
         super.tick(location);
-        /*
-        if there is a star powered player on a high ground tile, destroy the highground (replace with dirt)
-        and then spawn a $5 coin
-         */
+
         if (location.containsAnActor() && Player.getInstance().hasCapability(Status.STARPOWERED)) {
-            location.setGround(new Dirt());
-            location.addItem(new Coin("coin",'$',true,5));
+            location.setGround(new Dirt()); //if there is a star powered player on a high ground tile, destroy the highground (replace with dirt)
+            location.addItem(new Coin("coin",'$',true,5)); //and then spawn a $5 coin
         }
     }
 

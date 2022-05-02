@@ -9,8 +9,11 @@ import java.util.Random;
  * A class that represents the first stage of a tree.
  */
 public class Sprout extends Tree {
-    private final Random rand = new Random();
 
+    /**
+     * Random number generator
+     */
+    private final Random rand = new Random();
 
     /**
      * Success chance (as a percentage) to jump onto this
@@ -36,7 +39,10 @@ public class Sprout extends Tree {
     }
 
 
-
+    /**
+     * Constructor
+     * @see edu.monash.fit2099.engine.positions.Ground
+     */
     public Sprout() {
         super('+');
         turnsAlive = 0;

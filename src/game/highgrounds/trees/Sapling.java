@@ -15,6 +15,9 @@ public class Sapling extends Ground {
         super('t');
     }
 
+    /**
+     * Random number generator
+     */
     Random rand = new Random();
 
     /**

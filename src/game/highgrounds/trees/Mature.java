@@ -19,7 +19,11 @@ public class Mature extends Ground {
         super('T');
     }
 
+    /**
+     * Random number generator
+     */
     Random rand = new Random();
+
     /**
      * Turns this mature tree has been growing (as a mature tree)
      */

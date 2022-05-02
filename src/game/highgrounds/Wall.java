@@ -13,16 +13,11 @@ public class Wall extends HighGround {
 
 	/**
 	 * Constructor
-	 * @param displayChar     Character that represents this wall on the map
+	 * @see edu.monash.fit2099.engine.positions.Ground
 	 */
 	public Wall() {
 		super('#');
 	}
-
-	/**
-	 * Character that will be displayed on the map
-	 */
-	char displayChar = '#';
 
 	/**
 	 * Success chance (as a percentage) to jump onto this
