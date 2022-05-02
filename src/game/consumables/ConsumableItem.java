@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Player;
+import game.Status;
 import game.actions.ConsumeAction;
 
 /**
@@ -27,10 +28,18 @@ public abstract class ConsumableItem extends Item implements Consumable {
         actionAssigned = false;
     }
 
+    /**
+     *
+     * @return Whether the consume action has been assigned to this consumable (able to be consumed)
+     */
     public boolean isActionAssigned() {
         return actionAssigned;
     }
 
+    /**
+     *
+     * @param actionAssigned Set whether the consume action has been assigned to this consumable
+     */
     public void setActionAssigned(boolean actionAssigned) {
         this.actionAssigned = actionAssigned;
     }
@@ -43,13 +52,21 @@ public abstract class ConsumableItem extends Item implements Consumable {
         Player.getInstance().removeItemFromInventory(this);
     }
 
+
+    /**
+     * Tick method overridden by this actor; makes item in actors inventory aware of the passage of time
+     * @param currentLocation The location of the actor carrying this Item.
+     * @param actor The actor carrying this Item.
+     * @see Item#tick(Location, Actor)
+     */
     @Override
     public void tick(Location currentLocation, Actor actor) {
         super.tick(currentLocation, actor);
-        if (actor.getInventory().contains(this) && !this.isActionAssigned()) {
-            togglePortability();
-            this.addAction(new ConsumeAction(this));
-            this.setActionAssigned(true);
+        // If the actor has the consumable, is not yet able to be consumed and the actor is HOSTILE_TO_ENEMY (player)
+        if (actor.getInventory().contains(this) && !this.isActionAssigned() && actor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
+            togglePortability(); // Make it so that player can no longer drop the item
+            this.addAction(new ConsumeAction(this)); // Show the consume action in the menu of the player
+            this.setActionAssigned(true); // Set to be true so that the consumable action is only assigned once
         }
     }
 }

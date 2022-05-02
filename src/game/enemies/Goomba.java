@@ -32,12 +32,13 @@ public class Goomba extends Enemy {
 
     /**
      * Constructor.
+     * @see Enemy
      */
     public Goomba() {
         super("Goomba", 'g', 20);
-        this.behaviours.put(10, new AttackBehaviour(Player.getInstance()));
-        this.behaviours.put(20, new FollowBehaviour(Player.getInstance()));
-        this.behaviours.put(30, new WanderBehaviour());
+        this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
+        this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
+        this.behaviours.put(30, new WanderBehaviour()); // Adds wander behaviour to NPC; sets as lowest priority
     }
 
     /**
@@ -76,7 +77,8 @@ public class Goomba extends Enemy {
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        if (rand.nextInt(100) <= suicideRate) {
+        // If the random integer is less than the suicide rate; remove this actor
+        if (rand.nextInt(100) <= getSuicideRate()) {
             map.removeActor(this);
             System.out.println("Goomba was depressed and decided he couldn't take Mario's abuse any longer");
             return new DoNothingAction();
@@ -90,6 +92,10 @@ public class Goomba extends Enemy {
         return new DoNothingAction();
     }
 
+    /**
+     *
+     * @return The chance of a goomba committing suicide
+     */
     public int getSuicideRate() {
         return suicideRate;
     }

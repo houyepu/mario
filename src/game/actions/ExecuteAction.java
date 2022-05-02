@@ -22,9 +22,15 @@ public class ExecuteAction extends Action {
      */
     protected String direction;
 
-    public ExecuteAction(Actor target, String direction) {
+    /**
+     * Verb associated with weapon necessary for shell to be broken
+     */
+    protected String verb;
+
+    public ExecuteAction(Actor target, String direction, String verb) {
         this.target = target;
         this.direction = direction;
+        this.verb = verb;
     }
 
     /**
@@ -36,8 +42,8 @@ public class ExecuteAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         String result;
-
-        if (!target.isConscious() && target.hasCapability(Status.DORMANT) && actor.getWeapon().verb().equals("wrenches")){
+        // If the target is a Koopa, unconscious and the player has a wrench equipped
+        if (!target.isConscious() && target.hasCapability(Status.DORMANT) && actor.getWeapon().verb().equals(verb)){
             ActionList dropActions = new ActionList();
             // drop all items
             for (Item item : target.getInventory())

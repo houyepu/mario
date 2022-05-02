@@ -28,14 +28,19 @@ public class PickUpCoinAction extends PickUpItemAction {
      * Override exisiting method of execute
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return
+     * @return description
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        // coin will have to portability after it is picked up
         coin.togglePortability();
+        // at the location of actor picking up the coin the coin will be removed
         map.locationOf(actor).removeItem(coin);
+        // coin will then be added to actor's inventory
         actor.addItemToInventory(coin);
+        // wallet will be added with value according to coin's value
         Player.wallet += coin.getValue();
+        // printing out the wallet
         System.out.println("Player now has:$"+Player.wallet);
         return menuDescription(actor);
     }

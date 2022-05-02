@@ -6,22 +6,16 @@ import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.behaviours.Behaviour;
 import game.actions.MonologueAction;
 import game.actions.TradePowerStarAction;
 import game.actions.TradeSuperMushroomAction;
 import game.actions.TradeWrenchAction;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
  * Toad that speaks to the player and sells drugs :)
  */
 public class Toad extends Actor {
-    private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
-
     /**
      * Toad is an actor
      */

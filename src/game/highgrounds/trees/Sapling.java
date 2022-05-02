@@ -1,5 +1,6 @@
 package game.highgrounds.trees;
 
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.wallet.Coin;
@@ -53,6 +54,5 @@ public class Sapling extends Ground {
             location.addItem(new Coin("coin",'$',true,20));
             System.out.println("Money tree!");
         }
-
     }
 }

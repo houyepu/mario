@@ -15,29 +15,36 @@ public class TradeWrenchAction extends Action{
      */
     private final Actor toad;
 
-    private int price = 200;
     /**
-     * Constutoring a toad
+     * price for wrench
+     */
+    private int price = 200;
+
+    //Making a new wrench
+    Wrench wrench = new Wrench();
+
+    /**
+     * Constructing trade wrench
      * @param toad
      */
     public TradeWrenchAction(Actor toad) {
         this.toad = toad;
     }
 
-
-    //making wrench for testing
-    Wrench wrench = new Wrench();
     /**
      * Trade with toad
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return
+     * @return "Thanks for purchasing wrench"
      */
+
     @Override
     public String execute(Actor actor, GameMap map) {
+        //Check if wallet is less than the price
         if (Player.wallet < price){
             return "Not enough money to buy a wrench";
         }
+        //Add item to the inventory wallet minus the price
         else {
             actor.addItemToInventory(wrench);
             Player.wallet -= price;
@@ -49,7 +56,7 @@ public class TradeWrenchAction extends Action{
     /**
      * Description
      * @param actor The actor performing the action.
-     * @return
+     * @return "Mario buys Wrench for ($200)"
      */
     @Override
     public String menuDescription(Actor actor) {

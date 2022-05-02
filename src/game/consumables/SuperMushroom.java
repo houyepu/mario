@@ -8,7 +8,7 @@ import game.Status;
 /**
  * Class representing the SuperMushroom consumable
  */
-public class SuperMushroom extends ConsumableItem{
+public class SuperMushroom extends ConsumableItem {
 
     /**
      * Constructor
@@ -23,12 +23,7 @@ public class SuperMushroom extends ConsumableItem{
     @Override
     public void consume() {
         super.consume();
-        Player.getInstance().increaseMaxHp(50);
-        Player.getInstance().addCapability(Status.TALL);
-    }
-
-    @Override
-    public void tick(Location currentLocation, Actor actor) {
-        super.tick(currentLocation, actor);
+        Player.getInstance().increaseMaxHp(50); // Increase player's maxHP by 50 and set current health to new amount
+        Player.getInstance().addCapability(Status.SHROOMPOWERED); // Make player SHROOMPOWERED
     }
 }

@@ -43,19 +43,28 @@ public class AttackAction extends Action {
 		this.direction = direction;
 	}
 
+	/**
+	 *
+	 * @param actor The actor performing the action.
+	 * @param map The map the actor is on.
+	 * @return A string showing the outcome
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 
-		Weapon weapon = actor.getWeapon();
+		Weapon weapon = actor.getWeapon(); // Get the weapon of the actor
 
+		// If the random number is less than the chance the weapon has to hit -> miss
 		if (!(rand.nextInt(100) <= weapon.chanceToHit())) {
 			return actor + " misses " + target + ".";
 		}
 
+		// If the target of the AttackAction is STARPOWERED, make them invincible
 		if (target.hasCapability(Status.STARPOWERED)) {
 			return actor + " can't hit the invincible " + target + ".";
 		}
 
+		// If the one doing the AttackAction is STARPOWERED, make them insta-kill the enemy
 		if (actor.hasCapability(Status.STARPOWERED)) {
 			ActionList dropActions = new ActionList();
 			// drop all items
@@ -68,10 +77,11 @@ public class AttackAction extends Action {
 			return "The target cannot withstand the force of the Power Star";
 		}
 
-		int damage = weapon.damage();
-		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage.";
-		target.hurt(damage);
-		target.removeCapability(Status.TALL);
+		int damage = weapon.damage(); // Gets the damage of the weapon
+		String result = actor + " " + weapon.verb() + " " + target + " for " + damage + " damage."; // Print to console
+		target.hurt(damage); // Inflict damage upon the target
+		target.removeCapability(Status.SHROOMPOWERED); // Remove the SHROOMPOWERED status since the actor has been hit
+		// If the actor is unconscious and does not have the ability to go DORMANT
 		if (!target.isConscious() && !target.hasCapability(Status.DORMANT)) {
 			ActionList dropActions = new ActionList();
 			// drop all items
@@ -84,6 +94,7 @@ public class AttackAction extends Action {
 			result += System.lineSeparator() + target + " is killed.";
 		}
 		else if (!target.isConscious() && target.hasCapability(Status.DORMANT)){
+			// Will clear behaviours of target if it is made unconscious and has the ability to go DORMANT
 			((Koopa) target).getBehaviours().clear();
 			result += System.lineSeparator() + target + " is dormant.";
 		}
@@ -91,6 +102,11 @@ public class AttackAction extends Action {
 		return result;
 	}
 
+	/**
+	 *
+	 * @param actor The actor performing the action.
+	 * @return The way in which this should be represented in the console
+	 */
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " attacks " + target + " at " + direction;

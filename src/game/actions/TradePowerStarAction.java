@@ -20,8 +20,11 @@ public class TradePowerStarAction extends Action{
      */
     private int price = 600;
 
+    // Adding a powerStar
+    PowerStar powerStar = new PowerStar();
+
     /**
-     * Constutoring a trading for power star
+     * Constructor a trading for power star
      * @param toad
      */
     public TradePowerStarAction(Actor toad) {
@@ -29,20 +32,19 @@ public class TradePowerStarAction extends Action{
         this.price = price;
     }
 
-    // Making a powerstar to test trading
-    PowerStar powerStar = new PowerStar();
-
     /**
      * Trade with toad for power star
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return
+     * @return "Thanks for purchasing power star"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        //Check if wallet is less than the price
         if (Player.wallet < price){
             return "Not enough money to buy a power star";
         }
+        //Add to the inventory wallet minus the price
         else {
             actor.addItemToInventory(powerStar);
             Player.wallet -= price;
@@ -54,7 +56,7 @@ public class TradePowerStarAction extends Action{
     /**
      * Description
      * @param actor The actor performing the action.
-     * @return
+     * @return "Mario buys Power Star for ($600)"
      */
     @Override
     public String menuDescription(Actor actor) {

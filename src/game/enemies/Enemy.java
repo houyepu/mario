@@ -27,7 +27,7 @@ public abstract class Enemy extends Actor implements Resettable {
      */
     public Enemy(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
-        registerInstance();
+        registerInstance(); // Sets this as a resettable instance
     }
 
     /**
@@ -38,6 +38,11 @@ public abstract class Enemy extends Actor implements Resettable {
         return behaviours;
     }
 
+
+    /**
+     * Resets this instance; removes it from the map
+     * @param map   The map from which the actor will be removed
+     */
     @Override
     public void resetInstance(GameMap map) {
         map.removeActor(this);
