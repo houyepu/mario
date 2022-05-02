@@ -40,7 +40,7 @@ public abstract class HighGround extends Ground {
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
-        if (!location.containsAnActor()) {
+        if (!location.containsAnActor() && !actor.hasCapability(Status.STARPOWERED)) {
             actions.add(new JumpAction(location, direction));
         }
         return actions;

@@ -72,6 +72,12 @@ public class Goomba extends Enemy {
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        if (rand.nextInt(100) <= suicideRate) {
+            map.removeActor(this);
+            System.out.println("Goomba was depressed and decided he couldn't take Mario's abuse any longer");
+            return new DoNothingAction();
+        }
+
         for (Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)
