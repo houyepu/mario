@@ -15,7 +15,6 @@ public abstract class ConsumableItem extends Item implements Consumable {
      */
     public ConsumableItem(String name, char displayChar, boolean portable) {
         super(name, displayChar, portable);
-        this.addAction(new ConsumeAction(this));
     }
 
     /**

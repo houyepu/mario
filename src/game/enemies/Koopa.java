@@ -51,7 +51,9 @@ public class Koopa extends Enemy {
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
         if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this, direction));
-            actions.add(new ExecuteAction(this, direction));
+            if (!otherActor.hasCapability(Status.STARPOWERED)) {
+                actions.add(new ExecuteAction(this, direction));
+            }
             this.addCapability(Status.DORMANT);
         }
         return actions;

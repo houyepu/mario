@@ -79,4 +79,8 @@ public class Goomba extends Enemy {
         }
         return new DoNothingAction();
     }
+
+    public int getSuicideRate() {
+        return suicideRate;
+    }
 }

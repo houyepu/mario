@@ -4,8 +4,11 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Dirt;
+import game.Player;
 import game.Status;
 import game.actions.JumpAction;
+import game.wallet.Coin;
 
 public abstract class HighGround extends Ground {
 
@@ -41,6 +44,15 @@ public abstract class HighGround extends Ground {
             actions.add(new JumpAction(location, direction));
         }
         return actions;
+    }
+
+    @Override
+    public void tick(Location location) {
+        super.tick(location);
+        if (location.containsAnActor() && Player.getInstance().hasCapability(Status.STARPOWERED)) {
+            location.setGround(new Dirt());
+            location.addItem(new Coin("coin",'$',true,5));
+        }
     }
 
     public String menuDescription(Actor actor, Location location, String direction) {
