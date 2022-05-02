@@ -2,12 +2,10 @@ package game.wallet;
 
 
 import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.items.DropItemAction;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.items.PickUpItemAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Resettable;
-import game.actions.DropCoinAction;
 import game.actions.PickUpCoinAction;
 
 /**
@@ -50,10 +48,8 @@ public class Coin extends Item implements Resettable {
         return new PickUpCoinAction(this);
     }
 
-    public DropItemAction getDropAction(Actor actor) { return new DropCoinAction(this); }
-
     @Override
     public void resetInstance(GameMap map) {
-        System.out.println("IDK how to implement this");
+
     }
 }

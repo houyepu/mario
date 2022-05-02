@@ -32,6 +32,7 @@ public class PickUpCoinAction extends PickUpItemAction {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        coin.togglePortability();
         map.locationOf(actor).removeItem(coin);
         actor.addItemToInventory(coin);
         Player.wallet += coin.getValue();

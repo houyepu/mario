@@ -1,7 +1,9 @@
 package game.consumables;
 
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.items.DropItemAction;
 import edu.monash.fit2099.engine.items.Item;
+import edu.monash.fit2099.engine.items.PickUpItemAction;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Player;
 
@@ -45,7 +47,8 @@ public abstract class ConsumableItem extends Item implements Consumable {
     @Override
     public void tick(Location currentLocation, Actor actor) {
         super.tick(currentLocation, actor);
-        if (Player.getInstance().getInventory().contains(this) && !this.isActionAssigned()) {
+        if (actor.getInventory().contains(this) && !this.isActionAssigned()) {
+            togglePortability();
             this.addAction(new ConsumeAction(this));
             this.setActionAssigned(true);
         }
