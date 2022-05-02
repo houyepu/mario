@@ -1,7 +1,9 @@
 package game.enemies;
 
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.GameMap;
 import game.Behaviour;
+import game.Resettable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +11,7 @@ import java.util.Map;
 /**
  * Class representing enemies
  */
-public abstract class Enemy extends Actor {
+public abstract class Enemy extends Actor implements Resettable {
 
     /**
      * A map of behaviours (actions) which the AI can perform automatically
@@ -25,6 +27,7 @@ public abstract class Enemy extends Actor {
      */
     public Enemy(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
+        registerInstance();
     }
 
     /**
@@ -33,5 +36,10 @@ public abstract class Enemy extends Actor {
      */
     public Map<Integer, Behaviour> getBehaviours() {
         return behaviours;
+    }
+
+    @Override
+    public void resetInstance(GameMap map) {
+        map.removeActor(this);
     }
 }

@@ -2,6 +2,7 @@ package game.consumables;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.DropItemAction;
+import edu.monash.fit2099.engine.positions.Location;
 import game.Player;
 import game.Status;
 import game.actions.DropPowerStarAction;
@@ -27,5 +28,10 @@ public class SuperMushroom extends ConsumableItem{
         super.consume();
         Player.getInstance().increaseMaxHp(50);
         Player.getInstance().addCapability(Status.TALL);
+    }
+
+    @Override
+    public void tick(Location currentLocation, Actor actor) {
+        super.tick(currentLocation, actor);
     }
 }

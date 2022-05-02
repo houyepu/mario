@@ -2,13 +2,15 @@ package game.highgrounds.trees;
 
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Resettable;
 import game.Status;
 import game.actions.JumpAction;
 import game.highgrounds.HighGround;
 
 
-public abstract class Tree extends HighGround {
+public abstract class Tree extends HighGround implements Resettable {
 
     /**
      * Constructor.
@@ -17,6 +19,7 @@ public abstract class Tree extends HighGround {
      */
     public Tree(char displayChar) {
         super(displayChar);
+        registerInstance();
     }
 
     int jumpSuccessChance;
@@ -46,5 +49,10 @@ public abstract class Tree extends HighGround {
 
     public String menuDescription(Actor actor, Location location, String direction) {
         return ("Attempt jump " + direction + " to " + location.getGround());
+    }
+
+    @Override
+    public void resetInstance(GameMap map) {
+
     }
 }

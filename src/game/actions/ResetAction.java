@@ -7,7 +7,7 @@ import game.ResetManager;
 
 
 public class ResetAction extends Action {
-    private static int useTime = 1;
+    public static int useTime = 0;
     @Override
     public String execute(Actor actor, GameMap map) {
         //Trees have a 50% chance to be converted back to Dirt
@@ -16,18 +16,14 @@ public class ResetAction extends Action {
         //Heal player to maximum This is done by yepu :)
         //Remove all coins on the ground (Super Mushrooms and Power Stars may stay).
         //The execution of this can only be done once
-        if (useTime == 1){
-            useTime -= 1;
-            ResetManager.getInstance().run();
-            return actor + " has reseted the game.";
-        }
-        return actor + " has already used this";
-
+        ResetManager.getInstance().run(map);
+        useTime++;
+        return actor + " has reset the game.";
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return "reset everything";
+        return "Reset the game";
     }
 
     @Override

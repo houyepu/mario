@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.actions.*;
+import game.consumables.SuperMushroom;
 import game.wallet.Coin;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class Player extends Actor implements Resettable{
 	 */
 	public static int wallet;
 
-	private static Player player = null;
+	private static Player player;
 
 	/**
 	 * Constructor.
@@ -37,7 +38,8 @@ public class Player extends Actor implements Resettable{
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		this.powerUpTime = 10;
 		wallet = 1000;
-		player = this;
+		player = null;
+		registerInstance();
 	}
 
 	/**
@@ -54,7 +56,9 @@ public class Player extends Actor implements Resettable{
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
 		// Test Reset Action
-		actions.add(new ResetAction());
+		if (ResetAction.useTime == 0) {
+			actions.add(new ResetAction());
+		}
 		if (this.hasCapability(Status.STARPOWERED)) {
 			this.powerUpTime--;
 			System.out.println("Mario is star powered for " + powerUpTime + " more turns");
@@ -84,11 +88,10 @@ public class Player extends Actor implements Resettable{
 		return player;
 	}
 
-	/**
-	 * Reset player's max hp
-	 */
 	@Override
-	public void resetInstance(){
+	public void resetInstance(GameMap map) {
 		resetMaxHp(100);
+		this.removeCapability(Status.TALL);
+		this.removeCapability(Status.STARPOWERED);
 	}
 }

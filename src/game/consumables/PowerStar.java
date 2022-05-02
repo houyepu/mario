@@ -17,17 +17,11 @@ public class PowerStar extends ConsumableItem{
     private int powerStarFadeTime;
 
     /**
-     * Has the consume action been assigned
-     */
-    private boolean actionAssigned;
-
-    /**
      * Constructor
      */
     public PowerStar() {
         super("Power Star", '*', true);
         this.powerStarFadeTime = 10;
-        this.actionAssigned = false;
     }
 
     /**
@@ -66,10 +60,6 @@ public class PowerStar extends ConsumableItem{
     @Override
     public void tick(Location currentLocation, Actor actor) {
         super.tick(currentLocation, actor);
-        if (Player.getInstance().getInventory().contains(this) && !actionAssigned) {
-            this.addAction(new ConsumeAction(this));
-            actionAssigned = true;
-        }
         powerStarFadeTime--;
         System.out.println("Power star has " + powerStarFadeTime + " turns remaining");
         if (powerStarFadeTime <= 0)
