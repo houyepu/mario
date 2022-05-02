@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Player;
+import game.Status;
 import game.highgrounds.HighGround;
 
 import java.util.Random;
@@ -18,10 +19,11 @@ public class JumpAction extends Action {
         char displayChar = location.getGround().getDisplayChar();
 
 
-        if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {
+        if (actor.hasCapability(Status.TALL)) {
             System.out.println("Successful jump");
-        }
-        else {
+        } else if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {
+            System.out.println("Successful jump");
+        } else {
             Player.getInstance().hurt(highGround.getJumpFailureDamage());
             System.out.println("Mario falls and takes " + highGround.getJumpFailureDamage() + " damage!");
         }
