@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
 import game.actions.JumpAction;
 
-public class HighGround extends Ground {
+public abstract class HighGround extends Ground {
 
     /**
      * Constructor.
