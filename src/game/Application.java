@@ -10,12 +10,12 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
-import game.enemies.Goomba;
 import game.enemies.Koopa;
+import game.highgrounds.Wall;
 import game.toad.Toad;
-import game.trees.Mature;
-import game.trees.Sapling;
-import game.trees.Sprout;
+import game.highgrounds.trees.Mature;
+import game.highgrounds.trees.Sapling;
+import game.highgrounds.trees.Sprout;
 import game.wallet.Coin;
 
 /**

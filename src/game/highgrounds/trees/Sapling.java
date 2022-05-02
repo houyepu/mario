@@ -1,8 +1,7 @@
-package game.trees;
+package game.highgrounds.trees;
 
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
-import game.enemies.Goomba;
 import game.wallet.Coin;
 
 import java.util.Random;
@@ -15,6 +14,18 @@ public class Sapling extends Ground {
 
     Random rand = new Random();
     int turnsAlive;
+
+
+    int jumpSuccessChance = 80;
+    int jumpFailureDamage = 20;
+
+    public int getJumpSuccessChance() {
+        return jumpSuccessChance;
+    }
+
+    public int getJumpFailureDamage() {
+        return jumpFailureDamage;
+    }
 
     @Override
     public void tick(Location location) {

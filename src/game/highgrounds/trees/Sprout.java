@@ -1,4 +1,4 @@
-package game.trees;
+package game.highgrounds.trees;
 
 import edu.monash.fit2099.engine.positions.Location;
 import game.enemies.Goomba;
@@ -10,6 +10,17 @@ public class Sprout extends Tree {
     private static final int GOOMBA_SPAWN_LIMIT = 10;
     private final Random rand = new Random();
 
+
+    int jumpSuccessChance = 90;
+    int jumpFailureDamage = 10;
+
+    public int getJumpSuccessChance() {
+        return jumpSuccessChance;
+    }
+
+    public int getJumpFailureDamage() {
+        return jumpFailureDamage;
+    }
 
     public Sprout() {
         super('+');
@@ -34,4 +45,6 @@ public class Sprout extends Tree {
         }
 
     }
+
+
 }

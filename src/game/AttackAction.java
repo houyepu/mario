@@ -9,7 +9,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.Weapon;
 import game.enemies.Koopa;
-import game.trees.Sprout;
+import game.highgrounds.trees.Sprout;
 
 /**
  * Special Action for attacking other Actors.

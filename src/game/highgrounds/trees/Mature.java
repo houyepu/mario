@@ -1,12 +1,10 @@
-package game.trees;
+package game.highgrounds.trees;
 
 
 import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
-import game.enemies.Koopa;
-import game.wallet.Coin;
 
 import java.util.List;
 import java.util.Random;
@@ -19,6 +17,18 @@ public class Mature extends Ground {
 
     Random rand = new Random();
     int turnsAlive;
+
+
+    int jumpSuccessChance = 70;
+    int jumpFailureDamage = 30;
+
+    public int getJumpSuccessChance() {
+        return jumpSuccessChance;
+    }
+
+    public int getJumpFailureDamage() {
+        return jumpFailureDamage;
+    }
 
     @Override
     public void tick(Location location) {
@@ -44,7 +54,9 @@ public class Mature extends Ground {
             int i = 0;
             for (Exit exit : surroundingLocations) { //loop until you reach the randomly picked dirt tile, then grow a sprout there
 
-                if (exit.getDestination().getGround().getDisplayChar() == '.' && i == newSproutTile) { // if this is the growth tile, grow a sprout
+                // if this is the randomly chosen growth tile and there's no actor on it, grow a sprout
+                // if the space is occupied, it will have to wait another 5 turns to try again
+                if (exit.getDestination().getGround().getDisplayChar() == '.' && i == newSproutTile && !exit.getDestination().containsAnActor()) { // if this is the growth tile, grow a sprout
                     exit.getDestination().setGround(new Sprout());
                     break;
                 }
