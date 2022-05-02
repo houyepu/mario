@@ -15,7 +15,6 @@ public abstract class Ground implements Capable, Printable {
 
 	private final CapabilitySet capabilitySet = new CapabilitySet();
 	private char displayChar;
-
 	/**
 	 * Constructor.
 	 *

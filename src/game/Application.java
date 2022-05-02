@@ -60,6 +60,11 @@ public class Application {
 				map.set(0,"..+.......................................##....................................");
 				//System.out.println(i);
 			}*/
+		/*
+		Able to get the first string in map, aka the first row of options and convert
+		dirt tiles into sprouts, but I can't get that modified string into the original
+		map list and then move on to the next string aka row 2.
+		 */
 
 
 			GameMap gameMap = new GameMap(groundFactory, map);
