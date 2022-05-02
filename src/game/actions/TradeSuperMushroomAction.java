@@ -3,31 +3,31 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
-import game.Wrench;
 import game.consumables.SuperMushroom;
 
-// POSTPONDING WAITING FOR WRENCH TO BE CREATED
 /**
- * Trade wrench with the toad
+ * Trade toad with a super mushroom
  */
-public class TradeWrench extends Action{
+public class TradeSuperMushroomAction extends Action{
+
     /**
      * toad
      */
     private final Actor toad;
 
-    private int price = 200;
+    private int price = 400;
+
     /**
      * Constutoring a toad
      * @param toad
      */
-    public TradeWrench(Actor toad) {
+    public TradeSuperMushroomAction(Actor toad) {
         this.toad = toad;
     }
 
+    // Making a superMushroom to test trading
+    SuperMushroom superMushroom = new SuperMushroom();
 
-    //making wrench for testing
-    Wrench wrench = new Wrench();
     /**
      * Trade with toad
      * @param actor The actor performing the action.
@@ -37,13 +37,13 @@ public class TradeWrench extends Action{
     @Override
     public String execute(Actor actor, GameMap map) {
         if (Player.wallet < price){
-            return "Not enough money to buy a wrench";
+            return "Not enough money to buy a super mushroom";
         }
         else {
-            actor.addItemToInventory(wrench);
+            actor.addItemToInventory(superMushroom);
             Player.wallet -= price;
             System.out.println("now player has"+actor.getInventory());
-            return "Thanks for purchasing wrench";
+            return "Thanks for purchasing super mushroom";
         }
     }
 
@@ -54,6 +54,6 @@ public class TradeWrench extends Action{
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Mario buys Wrench for ($200)";
+        return "Mario buys Super Mushroom for ($400)";
     }
 }

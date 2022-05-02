@@ -1,9 +1,10 @@
-package game.consumables;
+package game.actions;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
+import game.consumables.ConsumableItem;
 
 /**
  * A special action allowing consumption of items
