@@ -4,33 +4,36 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
 import game.consumables.PowerStar;
-import game.consumables.SuperMushroom;
 
 /**
- * Trade toad with a super mushroom
+ * Trade with toad action
  */
-public class TradeSuperMushroom extends Action{
+public class TradePowerStarAction extends Action{
 
     /**
-     * toad
+     * A toad
      */
     private final Actor toad;
 
-    private int price = 400;
+    /**
+     * Price for power star
+     */
+    private int price = 600;
 
     /**
-     * Constutoring a toad
+     * Constutoring a trading for power star
      * @param toad
      */
-    public TradeSuperMushroom(Actor toad) {
+    public TradePowerStarAction(Actor toad) {
         this.toad = toad;
+        this.price = price;
     }
 
-    // Making a superMushroom to test trading
-    SuperMushroom superMushroom = new SuperMushroom();
+    // Making a powerstar to test trading
+    PowerStar powerStar = new PowerStar();
 
     /**
-     * Trade with toad
+     * Trade with toad for power star
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return
@@ -38,13 +41,13 @@ public class TradeSuperMushroom extends Action{
     @Override
     public String execute(Actor actor, GameMap map) {
         if (Player.wallet < price){
-            return "Not enough money to buy a super mushroom";
+            return "Not enough money to buy a power star";
         }
         else {
-            actor.addItemToInventory(superMushroom);
+            actor.addItemToInventory(powerStar);
             Player.wallet -= price;
             System.out.println("now player has"+actor.getInventory());
-            return "Thanks for purchasing super mushroom";
+            return "Thanks for purchasing power star";
         }
     }
 
@@ -55,6 +58,6 @@ public class TradeSuperMushroom extends Action{
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Mario buys Super Mushroom for ($400)";
+        return "Mario buys Power Star for ($600)";
     }
 }

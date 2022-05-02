@@ -8,6 +8,10 @@ import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.*;
+import game.actions.AttackAction;
+import game.behaviours.AttackBehaviour;
+import game.behaviours.FollowBehaviour;
+import game.behaviours.WanderBehaviour;
 
 import java.util.Random;
 
@@ -78,7 +82,7 @@ public class Goomba extends Enemy {
             return new DoNothingAction();
         }
 
-        for (Behaviour Behaviour : behaviours.values()) {
+        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)
                 return action;

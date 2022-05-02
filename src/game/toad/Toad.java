@@ -6,14 +6,11 @@ import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.displays.Menu;
-import game.AttackAction;
-import game.Behaviour;
-import game.Status;
+import game.behaviours.Behaviour;
 import game.actions.MonologueAction;
-import game.actions.TradePowerStar;
-import game.actions.TradeSuperMushroom;
-import game.actions.TradeWrench;
+import game.actions.TradePowerStarAction;
+import game.actions.TradeSuperMushroomAction;
+import game.actions.TradeWrenchAction;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,9 +54,9 @@ public class Toad extends Actor {
         ActionList actions = new ActionList();
         // Toad has 4 actions
         actions.add(new MonologueAction(this));
-        actions.add(new TradePowerStar(this));
-        actions.add(new TradeSuperMushroom(this));
-        actions.add(new TradeWrench(this));
+        actions.add(new TradePowerStarAction(this));
+        actions.add(new TradeSuperMushroomAction(this));
+        actions.add(new TradeWrenchAction(this));
 
         return actions;
     }

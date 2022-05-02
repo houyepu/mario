@@ -2,7 +2,7 @@ package game.enemies;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.Behaviour;
+import game.behaviours.Behaviour;
 import game.Resettable;
 
 import java.util.HashMap;

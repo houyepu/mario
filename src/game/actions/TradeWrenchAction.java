@@ -3,37 +3,32 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
-import game.consumables.PowerStar;
+import game.Wrench;
 
+// POSTPONDING WAITING FOR WRENCH TO BE CREATED
 /**
- * Trade with toad action
+ * Trade wrench with the toad
  */
-public class TradePowerStar extends Action{
-
+public class TradeWrenchAction extends Action{
     /**
-     * A toad
+     * toad
      */
     private final Actor toad;
 
+    private int price = 200;
     /**
-     * Price for power star
-     */
-    private int price = 600;
-
-    /**
-     * Constutoring a trading for power star
+     * Constutoring a toad
      * @param toad
      */
-    public TradePowerStar(Actor toad) {
+    public TradeWrenchAction(Actor toad) {
         this.toad = toad;
-        this.price = price;
     }
 
-    // Making a powerstar to test trading
-    PowerStar powerStar = new PowerStar();
 
+    //making wrench for testing
+    Wrench wrench = new Wrench();
     /**
-     * Trade with toad for power star
+     * Trade with toad
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return
@@ -41,13 +36,13 @@ public class TradePowerStar extends Action{
     @Override
     public String execute(Actor actor, GameMap map) {
         if (Player.wallet < price){
-            return "Not enough money to buy a power star";
+            return "Not enough money to buy a wrench";
         }
         else {
-            actor.addItemToInventory(powerStar);
+            actor.addItemToInventory(wrench);
             Player.wallet -= price;
             System.out.println("now player has"+actor.getInventory());
-            return "Thanks for purchasing power star";
+            return "Thanks for purchasing wrench";
         }
     }
 
@@ -58,6 +53,6 @@ public class TradePowerStar extends Action{
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Mario buys Power Star for ($600)";
+        return "Mario buys Wrench for ($200)";
     }
 }
