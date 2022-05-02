@@ -58,7 +58,7 @@ public class Koopa extends Enemy {
         if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this, direction));
             // If the other actor is not STARPOWERED, don't allow execute action since it will be killed immediately
-            if (!otherActor.hasCapability(Status.STARPOWERED)) {
+            if (!this.isConscious() && !otherActor.hasCapability(Status.STARPOWERED)) {
                 actions.add(new ExecuteAction(this, direction, "wrenches"));
             }
             this.addCapability(Status.DORMANT); // Allow for this actor to go dormant (avoid death until executed)
