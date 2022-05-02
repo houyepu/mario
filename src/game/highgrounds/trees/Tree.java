@@ -9,7 +9,9 @@ import game.Status;
 import game.actions.JumpAction;
 import game.highgrounds.HighGround;
 
-
+/**
+ * Abstract class representing different stages of the tree lifecycle.
+ */
 public abstract class Tree extends HighGround implements Resettable {
 
     /**
@@ -22,7 +24,13 @@ public abstract class Tree extends HighGround implements Resettable {
         registerInstance();
     }
 
+    /**
+     * Success chance (as a percentage) to jump onto this
+     */
     int jumpSuccessChance;
+    /**
+     * Damage taken by failing to jump onto this object
+     */
     int jumpFailureDamage;
 
     public int getJumpSuccessChance() {
@@ -38,6 +46,13 @@ public abstract class Tree extends HighGround implements Resettable {
         return actor.hasCapability(Status.STARPOWERED);
     }
 
+    /**
+     *
+     * @param actor the Actor who may be able to jump
+     * @param location the Location the actor is potentially able to jump to
+     * @param direction the direction of the high ground from the Actor
+     * @return a jump action, if it is a valid jump
+     */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
@@ -47,6 +62,10 @@ public abstract class Tree extends HighGround implements Resettable {
         return actions;
     }
 
+    /**
+     *
+     * @see HighGround
+     */
     public String menuDescription(Actor actor, Location location, String direction) {
         return ("Attempt jump " + direction + " to " + location.getGround());
     }

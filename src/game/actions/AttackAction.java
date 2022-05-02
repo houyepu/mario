@@ -1,4 +1,4 @@
-package game;
+package game.actions;
 
 import java.util.Random;
 
@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.Weapon;
+import game.Status;
 import game.enemies.Koopa;
 import game.highgrounds.trees.Sprout;
 
@@ -80,7 +81,6 @@ public class AttackAction extends Action {
 				drop.execute(target, map);
 			// remove actor
 			map.removeActor(target);
-			Sprout.goombaSpawnCount--;
 			result += System.lineSeparator() + target + " is killed.";
 		}
 		else if (!target.isConscious() && target.hasCapability(Status.DORMANT)){

@@ -3,32 +3,31 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
-import game.consumables.PowerStar;
-import game.consumables.SuperMushroom;
+import game.Wrench;
 
+// POSTPONDING WAITING FOR WRENCH TO BE CREATED
 /**
- * Trade toad with a super mushroom
+ * Trade wrench with the toad
  */
-public class TradeSuperMushroom extends Action{
-
+public class TradeWrenchAction extends Action{
     /**
      * toad
      */
     private final Actor toad;
 
     /**
-     *  price of the super mushroom
+     * price for wrench
      */
-    private int price = 400;
+    private int price = 200;
 
-    // Adding a superMushroom
-    SuperMushroom superMushroom = new SuperMushroom();
+    //Making a new wrench
+    Wrench wrench = new Wrench();
 
     /**
-     * Constructor Super mushroom
+     * Constructing trade wrench
      * @param toad
      */
-    public TradeSuperMushroom(Actor toad) {
+    public TradeWrenchAction(Actor toad) {
         this.toad = toad;
     }
 
@@ -36,30 +35,31 @@ public class TradeSuperMushroom extends Action{
      * Trade with toad
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return "Thanks for purchasing super mushroom"
+     * @return "Thanks for purchasing wrench"
      */
+
     @Override
     public String execute(Actor actor, GameMap map) {
         //Check if wallet is less than the price
         if (Player.wallet < price){
-            return "Not enough money to buy a super mushroom";
+            return "Not enough money to buy a wrench";
         }
         //Add item to the inventory wallet minus the price
         else {
-            actor.addItemToInventory(superMushroom);
+            actor.addItemToInventory(wrench);
             Player.wallet -= price;
             System.out.println("now player has"+actor.getInventory());
-            return "Thanks for purchasing super mushroom";
+            return "Thanks for purchasing wrench";
         }
     }
 
     /**
      * Description
      * @param actor The actor performing the action.
-     * @return "Mario buys Super Mushroom for ($400)"
+     * @return "Mario buys Wrench for ($200)"
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Mario buys Super Mushroom for ($400)";
+        return "Mario buys Wrench for ($200)";
     }
 }

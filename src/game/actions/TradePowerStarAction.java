@@ -8,7 +8,7 @@ import game.consumables.PowerStar;
 /**
  * Trade with toad action
  */
-public class TradePowerStar extends Action{
+public class TradePowerStarAction extends Action{
 
     /**
      * A toad
@@ -27,7 +27,7 @@ public class TradePowerStar extends Action{
      * Constructor a trading for power star
      * @param toad
      */
-    public TradePowerStar(Actor toad) {
+    public TradePowerStarAction(Actor toad) {
         this.toad = toad;
         this.price = price;
     }

@@ -5,14 +5,30 @@ import game.enemies.Goomba;
 
 import java.util.Random;
 
+/**
+ * A class that represents the first stage of a tree.
+ */
 public class Sprout extends Tree {
-    public static int goombaSpawnCount = 0;
-    private static final int GOOMBA_SPAWN_LIMIT = 10;
+
+    /**
+     * Random number generator
+     */
     private final Random rand = new Random();
 
-
+    /**
+     * Success chance (as a percentage) to jump onto this
+     */
     int jumpSuccessChance = 90;
+
+    /**
+     * Damage taken by failing to jump onto this object
+     */
     int jumpFailureDamage = 10;
+
+    /**
+     * Turns this sprout has been growing (as a sprout)
+     */
+    int turnsAlive;
 
     public int getJumpSuccessChance() {
         return jumpSuccessChance;
@@ -22,12 +38,17 @@ public class Sprout extends Tree {
         return jumpFailureDamage;
     }
 
+
+    /**
+     * Constructor
+     * @see edu.monash.fit2099.engine.positions.Ground
+     */
     public Sprout() {
         super('+');
         turnsAlive = 0;
     }
 
-    int turnsAlive;
+
 
     @Override
     public void tick(Location location) {
@@ -36,10 +57,9 @@ public class Sprout extends Tree {
             System.out.println("SPROUTS GROW UP"); //testing purposes only
             location.setGround(new Sapling());
         }
-        if (rand.nextInt(100) <= 10 && goombaSpawnCount <= GOOMBA_SPAWN_LIMIT) {
+        if (rand.nextInt(100) <= 10) {
             if (!location.containsAnActor()) {
                 location.addActor(new Goomba());
-                goombaSpawnCount++;
                 System.out.println("Goomba spawned");
             }
         }
