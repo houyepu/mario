@@ -5,7 +5,7 @@ import game.enemies.Goomba;
 
 import java.util.Random;
 
-public class Sprout extends TreeAbstract {
+public class Sprout extends Tree {
     private static int goombaSpawnCount = 0;
     private static final int GOOMBA_SPAWN_LIMIT = 10;
     private final Random rand = new Random();

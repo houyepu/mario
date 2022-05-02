@@ -11,7 +11,7 @@ public class Wall extends Ground {
 	
 	@Override
 	public boolean canActorEnter(Actor actor) {
-		return false;
+		return actor.hasCapability(Status.STARPOWERED);
 	}
 	
 	@Override

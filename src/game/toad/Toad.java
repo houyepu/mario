@@ -29,7 +29,7 @@ public class Toad extends Actor {
      * Toad is an actor
      */
     public Toad() {
-        super("Toad", 'O', 10000);
+        super("Toad", 'B', 10000);
     }
 
     /**
@@ -38,7 +38,7 @@ public class Toad extends Actor {
      * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
      * @param map        the map containing the Actor
      * @param display    the I/O object to which messages may be written
-     * @return
+     * @return action    the action which will be performed
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
@@ -50,7 +50,7 @@ public class Toad extends Actor {
      * @param otherActor the Actor that might be performing attack
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap
-     * @return
+     * @return A collection of actions
      */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
