@@ -24,7 +24,7 @@ public class JumpAction extends Action {
 
         char displayChar = location.getGround().getDisplayChar();
 
-        if (actor.hasCapability(Status.TALL)) {
+        if (actor.hasCapability(Status.SHROOMPOWERED)) {
             map.moveActor(Player.getInstance(), location);
             return ("Successful jump to (" + location.x() + "," + location.y()+")");
         } else if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {

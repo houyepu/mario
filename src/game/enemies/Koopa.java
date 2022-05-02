@@ -22,17 +22,18 @@ public class Koopa extends Enemy {
 
     /**
      * Constructor
+     *
+     * @see Enemy
      */
     public Koopa() {
         super("Koopa", 'K', 100);
-        this.behaviours.put(10, new AttackBehaviour(Player.getInstance()));
-        this.behaviours.put(20, new FollowBehaviour(Player.getInstance()));
-        this.behaviours.put(30, new WanderBehaviour());
-        this.addItemToInventory(new SuperMushroom());
+        this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
+        this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
+        this.behaviours.put(30, new WanderBehaviour()); // Adds wander behaviour to NPC; sets as lowest priority
+        this.addItemToInventory(new SuperMushroom()); // Adds a super mushroom to the inventory of the Koopa (drops when killed)
     }
 
     /**
-     *
      * @return IntrinsicWeapon of the Koopa
      */
     @Override
@@ -52,14 +53,15 @@ public class Koopa extends Enemy {
      */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
-        ActionList actions = new ActionList();
+        ActionList actions = new ActionList(); // List of potential actions against this actor
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
         if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
             actions.add(new AttackAction(this, direction));
+            // If the other actor is not STARPOWERED, don't allow execute action since it will be killed immediately
             if (!otherActor.hasCapability(Status.STARPOWERED)) {
-                actions.add(new ExecuteAction(this, direction));
+                actions.add(new ExecuteAction(this, direction, "wrenches"));
             }
-            this.addCapability(Status.DORMANT);
+            this.addCapability(Status.DORMANT); // Allow for this actor to go dormant (avoid death until executed)
         }
         return actions;
     }
@@ -79,12 +81,16 @@ public class Koopa extends Enemy {
         return new DoNothingAction();
     }
 
+    /**
+     *
+     * @return The display character that reflects whether the Koopa is unconscious
+     */
     @Override
     public char getDisplayChar() {
+        // If the actor isn't conscious
         if (!isConscious()) {
             return 'D';
-        }
-        else {
+        } else {
             return super.getDisplayChar();
         }
     }

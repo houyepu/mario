@@ -6,7 +6,7 @@ package game;
  */
 public enum Status {
     HOSTILE_TO_ENEMY, // use this status to be considered hostile towards enemy (e.g., to be attacked by enemy)
-    TALL, // use this status to tell that current instance has "grown".
+    SHROOMPOWERED, // use this status to tell that current instance has "grown".
     STARPOWERED, // use this status to tell the current instance that mario has consumed a power star
     DORMANT, // use this status to tell that current instance of Koopa is dormant
 }

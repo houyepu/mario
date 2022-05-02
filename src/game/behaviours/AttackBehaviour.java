@@ -34,11 +34,14 @@ public class AttackBehaviour implements Behaviour {
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
+        // If the map doesn't have the player or the target actor
         if(!map.contains(player) || !map.contains(actor))
             return null;
 
+        // Get this actor's location
         Location here = map.locationOf(actor);
 
+        // Check to see if there is a player to attack within the immediate surroundings
         for (Exit exit : here.getExits()) {
             Location destination = exit.getDestination();
             if (destination.containsAnActor()) {
