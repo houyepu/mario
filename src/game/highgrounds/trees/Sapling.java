@@ -6,6 +6,9 @@ import game.wallet.Coin;
 
 import java.util.Random;
 
+/**
+ * A class that represents the second stage of a tree.
+ */
 public class Sapling extends Ground {
 
     public Sapling() {
@@ -13,10 +16,19 @@ public class Sapling extends Ground {
     }
 
     Random rand = new Random();
+
+    /**
+     * Turns this sapling has been growing (as a sapling)
+     */
     int turnsAlive;
 
-
+    /**
+     * Success chance (as a percentage) to jump onto this
+     */
     int jumpSuccessChance = 80;
+    /**
+     * Damage taken by failing to jump onto this object
+     */
     int jumpFailureDamage = 20;
 
     public int getJumpSuccessChance() {

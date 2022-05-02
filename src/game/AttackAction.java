@@ -80,7 +80,6 @@ public class AttackAction extends Action {
 				drop.execute(target, map);
 			// remove actor
 			map.removeActor(target);
-			Sprout.goombaSpawnCount--;
 			result += System.lineSeparator() + target + " is killed.";
 		}
 		else if (!target.isConscious() && target.hasCapability(Status.DORMANT)){

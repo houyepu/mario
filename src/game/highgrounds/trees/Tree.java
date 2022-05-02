@@ -9,7 +9,9 @@ import game.Status;
 import game.actions.JumpAction;
 import game.highgrounds.HighGround;
 
-
+/**
+ * Abstract class representing different stages of the tree lifecycle.
+ */
 public abstract class Tree extends HighGround implements Resettable {
 
     /**
@@ -22,7 +24,13 @@ public abstract class Tree extends HighGround implements Resettable {
         registerInstance();
     }
 
+    /**
+     * Success chance (as a percentage) to jump onto this
+     */
     int jumpSuccessChance;
+    /**
+     * Damage taken by failing to jump onto this object
+     */
     int jumpFailureDamage;
 
     public int getJumpSuccessChance() {
