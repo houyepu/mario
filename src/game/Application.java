@@ -1,5 +1,6 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,6 +51,16 @@ public class Application {
 				"...................+.................................#..........................",
 				"......................................................#.........................",
 				".......................................................##.......................");
+/*
+			//populate the map with random sprouts
+			int sproutSpawnChance = 1; //per tile
+			for (String i : map){
+				String[] rows = i.split("");
+				i = rows[0].replace('.','+');
+				map.set(0,"..+.......................................##....................................");
+				//System.out.println(i);
+			}*/
+
 
 			GameMap gameMap = new GameMap(groundFactory, map);
 			world.addGameMap(gameMap);
@@ -57,6 +68,7 @@ public class Application {
 			Actor mario = Player.getInstance();
 
 			world.addPlayer(mario, gameMap.at(42, 10));
+
 
 			//gameMap.at(34, 10).addActor(new Goomba());
 			gameMap.at(35, 10).addActor(new Koopa());
