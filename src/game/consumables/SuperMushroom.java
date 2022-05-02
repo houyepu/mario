@@ -7,11 +7,21 @@ import game.Status;
 import game.actions.DropPowerStarAction;
 import game.actions.DropSuperMushroomAction;
 
+/**
+ * Class representing the SuperMushroom consumable
+ */
 public class SuperMushroom extends ConsumableItem{
+
+    /**
+     * Constructor
+     */
     public SuperMushroom() {
         super("Super Mushroom", '^', true);
     }
 
+    /**
+     * Consume the super mushroom -> power up effects
+     */
     @Override
     public void consume() {
         super.consume();

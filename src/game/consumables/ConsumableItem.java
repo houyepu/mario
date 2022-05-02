@@ -3,6 +3,9 @@ package game.consumables;
 import edu.monash.fit2099.engine.items.Item;
 import game.Player;
 
+/**
+ * Class representing items that can be consumed
+ */
 public abstract class ConsumableItem extends Item implements Consumable {
     /***
      * Constructor.
@@ -15,6 +18,9 @@ public abstract class ConsumableItem extends Item implements Consumable {
         this.addAction(new ConsumeAction(this));
     }
 
+    /**
+     * Consume the item and remove from inventory
+     */
     @Override
     public void consume() {
         Player.player.removeItemFromInventory(this);

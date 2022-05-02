@@ -5,6 +5,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
 
+/**
+ * A special action allowing consumption of items
+ */
 public class ConsumeAction extends Action {
 
     protected ConsumableItem consumableItem;
@@ -20,7 +23,7 @@ public class ConsumeAction extends Action {
             return "Player consumed " + consumableItem;
         }
         else {
-            return "Player failed to consume the item";
+            return "Please pick up item before consumption";
         }
     }
 

@@ -6,8 +6,14 @@ import game.Behaviour;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class representing enemies
+ */
 public abstract class Enemy extends Actor {
 
+    /**
+     * A map of behaviours (actions) which the AI can perform automatically
+     */
     protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
     /**
@@ -21,6 +27,10 @@ public abstract class Enemy extends Actor {
         super(name, displayChar, hitPoints);
     }
 
+    /**
+     *
+     * @return All the behaviours that an enemy may take
+     */
     public Map<Integer, Behaviour> getBehaviours() {
         return behaviours;
     }

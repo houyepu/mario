@@ -19,6 +19,8 @@ public class Player extends Actor implements Resettable{
 
 	private final Menu menu = new Menu();
 
+	private int powerUpTime;
+
 	/**
 	 * This is a global attribute of wallet. Because we think that for the design requirement there will only be one player hence this
 	 * means that one player can only have one single wallet. Therefore it is easier to make wallet a global var.
@@ -26,6 +28,7 @@ public class Player extends Actor implements Resettable{
 	public static int wallet;
 
 	public static Player player;
+
 	/**
 	 * Constructor.
 	 *
@@ -36,6 +39,7 @@ public class Player extends Actor implements Resettable{
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
+		this.powerUpTime = 10;
 		wallet = 1000;
 		player = this;
 	}
@@ -46,15 +50,23 @@ public class Player extends Actor implements Resettable{
 	 * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
 	 * @param map        the map containing the Actor
 	 * @param display    the I/O object to which messages may be written
-	 * @return
+	 * @return			 the Action to be completed this turn
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
-		// Test Reset Action Please dont touch this :)). If anything is modified send a message to yepu.
+		// Test Reset Action
 		actions.add(new ResetAction());
+		if (this.hasCapability(Status.STARPOWERED)) {
+			this.powerUpTime--;
+			System.out.println("Mario is star powered for " + powerUpTime + " more turns");
+			if (powerUpTime <= 1) {
+				powerUpTime = 10;
+				this.removeCapability(Status.STARPOWERED);
+			}
+		}
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}

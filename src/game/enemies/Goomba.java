@@ -15,7 +15,15 @@ import java.util.Random;
  * A little fungus guy.
  */
 public class Goomba extends Enemy {
+
+    /**
+     * The probability/chance of a Goomba committing suicide
+     */
     private final int suicideRate = 10;
+
+    /**
+     * Random number generator
+     */
     protected Random rand = new Random();
 
     /**
@@ -28,6 +36,10 @@ public class Goomba extends Enemy {
         this.behaviours.put(30, new WanderBehaviour());
     }
 
+    /**
+     *
+     * @return IntrinsicWeapon of the Goomba
+     */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(10, "kicks");
