@@ -29,12 +29,6 @@ public class Wall extends HighGround {
 		return actor.hasCapability(Status.STARPOWERED);
 	}
 
-	@Override
-	public ActionList allowableActions(Actor actor, Location location, String direction) {
-		ActionList actions = new ActionList();
-		actions.add(new JumpAction(location, direction));
-		return actions;
-	}
 
 	
 	@Override

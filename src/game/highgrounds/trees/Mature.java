@@ -39,7 +39,7 @@ public class Mature extends Ground {
         }
         /*if (rand.nextInt(100) <= 10) {
             location.addActor(new Koopa());
-            System.out.println("Koopa Spawned!");
+            System.out.println("Koopa Spawned!");1
         }*/
         if (turnsAlive % 5 == 0) { // produce sprout every 5 turns
             List<Exit> surroundingLocations = location.getExits();

@@ -15,23 +15,18 @@ public class JumpAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
 
-
         char displayChar = location.getGround().getDisplayChar();
 
-
         if (actor.hasCapability(Status.TALL)) {
-            System.out.println("Successful jump");
+            return ("Successful jump");
         } else if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {
-            System.out.println("Successful jump");
+            map.moveActor(Player.getInstance(), location);
+            return ("Successful jump");
         } else {
             Player.getInstance().hurt(highGround.getJumpFailureDamage());
-            System.out.println("Mario falls and takes " + highGround.getJumpFailureDamage() + " damage!");
+            return ("Mario falls and takes " + highGround.getJumpFailureDamage() + " damage!");
         }
 
-
-
-
-        return null;
     }
 
 
@@ -61,7 +56,11 @@ public class JumpAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return (actor + " jumps to high ground at " + direction);
+        if (!location.containsAnActor()) {
+            return (actor + " jumps to high ground at " + direction);
+        }
+        return null;
+        
     }
 
 }
