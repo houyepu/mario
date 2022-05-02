@@ -27,17 +27,13 @@ public class Player extends Actor implements Resettable{
 	 */
 	public static int wallet;
 
-	public static Player player;
+	private static Player player = null;
 
 	/**
 	 * Constructor.
-	 *
-	 * @param name        Name to call the player in the UI
-	 * @param displayChar Character to represent the player in the UI
-	 * @param hitPoints   Player's starting number of hitpoints
 	 */
-	public Player(String name, char displayChar, int hitPoints) {
-		super(name, displayChar, hitPoints);
+	private Player() {
+		super("Mario", 'm', 100);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		this.powerUpTime = 10;
 		wallet = 1000;
@@ -78,6 +74,14 @@ public class Player extends Actor implements Resettable{
 	@Override
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
+	}
+
+	public static Player getInstance() {
+		if (player == null) {
+			player = new Player();
+		}
+
+		return player;
 	}
 
 	/**

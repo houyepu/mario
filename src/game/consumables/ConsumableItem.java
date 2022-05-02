@@ -23,6 +23,6 @@ public abstract class ConsumableItem extends Item implements Consumable {
      */
     @Override
     public void consume() {
-        Player.player.removeItemFromInventory(this);
+        Player.getInstance().removeItemFromInventory(this);
     }
 }

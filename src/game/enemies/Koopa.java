@@ -20,8 +20,8 @@ public class Koopa extends Enemy {
      */
     public Koopa() {
         super("Koopa", 'K', 100);
-        this.behaviours.put(10, new AttackBehaviour(Player.player));
-        this.behaviours.put(20, new FollowBehaviour(Player.player));
+        this.behaviours.put(10, new AttackBehaviour(Player.getInstance()));
+        this.behaviours.put(20, new FollowBehaviour(Player.getInstance()));
         this.behaviours.put(30, new WanderBehaviour());
         this.addItemToInventory(new SuperMushroom());
     }

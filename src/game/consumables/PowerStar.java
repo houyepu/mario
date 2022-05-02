@@ -29,8 +29,8 @@ public class PowerStar extends ConsumableItem{
     @Override
     public void consume() {
         super.consume();
-        Player.player.increaseMaxHp(200);
-        Player.player.addCapability(Status.STARPOWERED);
+        Player.getInstance().increaseMaxHp(200);
+        Player.getInstance().addCapability(Status.STARPOWERED);
         System.out.println("MARIO IS INVINCIBLE");
     }
 

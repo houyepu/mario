@@ -25,7 +25,7 @@ public class SuperMushroom extends ConsumableItem{
     @Override
     public void consume() {
         super.consume();
-        Player.player.increaseMaxHp(50);
-        Player.player.addCapability(Status.TALL);
+        Player.getInstance().increaseMaxHp(50);
+        Player.getInstance().addCapability(Status.TALL);
     }
 }

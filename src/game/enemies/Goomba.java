@@ -31,8 +31,8 @@ public class Goomba extends Enemy {
      */
     public Goomba() {
         super("Goomba", 'g', 20);
-        this.behaviours.put(10, new AttackBehaviour(Player.player));
-        this.behaviours.put(20, new FollowBehaviour(Player.player));
+        this.behaviours.put(10, new AttackBehaviour(Player.getInstance()));
+        this.behaviours.put(20, new FollowBehaviour(Player.getInstance()));
         this.behaviours.put(30, new WanderBehaviour());
     }
 

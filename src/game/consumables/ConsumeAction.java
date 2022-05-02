@@ -18,7 +18,7 @@ public class ConsumeAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        if (Player.player.getInventory().contains(consumableItem)) {
+        if (Player.getInstance().getInventory().contains(consumableItem)) {
             consumableItem.consume();
             return "Player consumed " + consumableItem;
         }
