@@ -51,7 +51,7 @@ public class Sapling extends Ground {
             location.setGround(new Mature());
         }
         if (rand.nextInt(100) <= 10) {
-            location.addItem(new Coin("coin",'$',true,20));
+            location.addItem(new Coin("coin", '$', true, 20));
             System.out.println("Money tree!");
         }
     }

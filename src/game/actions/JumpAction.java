@@ -14,9 +14,8 @@ public class JumpAction extends Action {
     private final Random rand = new Random();
 
     /**
-     *
      * @param actor The actor performing the jump.
-     * @param map The map the actor is on.
+     * @param map   The map the actor is on.
      * @return Where the player has successfully jumped to OR how much damage they took on the failed jump.
      */
     @Override
@@ -26,17 +25,16 @@ public class JumpAction extends Action {
 
         if (actor.hasCapability(Status.SHROOMPOWERED)) {
             map.moveActor(Player.getInstance(), location);
-            return ("Successful jump to (" + location.x() + "," + location.y()+")");
+            return ("Successful jump to (" + location.x() + "," + location.y() + ")");
         } else if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {
             map.moveActor(Player.getInstance(), location);
-            return ("Successful jump to (" + location.x() + "," + location.y()+")");
+            return ("Successful jump to (" + location.x() + "," + location.y() + ")");
         } else {
             Player.getInstance().hurt(highGround.getJumpFailureDamage());
             return ("Mario falls and takes " + highGround.getJumpFailureDamage() + " damage!");
         }
 
     }
-
 
 
     /**
@@ -57,7 +55,7 @@ public class JumpAction extends Action {
     /**
      * Constructor.
      *
-     * @param location the location to jump to
+     * @param location  the location to jump to
      * @param direction the direction the jump is being made in
      */
     public JumpAction(Location location, String direction) {
@@ -67,7 +65,6 @@ public class JumpAction extends Action {
     }
 
     /**
-     *
      * @param actor The actor performing the action.
      * @return a message for the player console describing the jump.
      */

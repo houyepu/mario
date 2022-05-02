@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.weapons.WeaponItem;
 public class Wrench extends WeaponItem {
     /**
      * Constructor
+     *
      * @see WeaponItem
      */
     public Wrench() {

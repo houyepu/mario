@@ -20,7 +20,8 @@ public class AttackBehaviour implements Behaviour {
 
     /**
      * Constructor
-     * @param actor     The player actor
+     *
+     * @param actor The player actor
      */
     public AttackBehaviour(Actor actor) {
         this.player = actor;
@@ -28,14 +29,15 @@ public class AttackBehaviour implements Behaviour {
 
     /**
      * Retrieves the AttackAction needed to attack the player
+     *
      * @param actor the Actor acting
-     * @param map the GameMap containing the Actor
+     * @param map   the GameMap containing the Actor
      * @return the AttackAction which targets the player
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         // If the map doesn't have the player or the target actor
-        if(!map.contains(player) || !map.contains(actor))
+        if (!map.contains(player) || !map.contains(actor))
             return null;
 
         // Get this actor's location

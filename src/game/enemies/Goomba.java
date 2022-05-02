@@ -32,6 +32,7 @@ public class Goomba extends Enemy {
 
     /**
      * Constructor.
+     *
      * @see Enemy
      */
     public Goomba() {
@@ -42,7 +43,6 @@ public class Goomba extends Enemy {
     }
 
     /**
-     *
      * @return IntrinsicWeapon of the Goomba
      */
     @Override
@@ -93,7 +93,6 @@ public class Goomba extends Enemy {
     }
 
     /**
-     *
      * @return The chance of a goomba committing suicide
      */
     public int getSuicideRate() {

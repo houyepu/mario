@@ -22,8 +22,7 @@ public class ConsumeAction extends Action {
         if (Player.getInstance().getInventory().contains(consumableItem)) {
             consumableItem.consume();
             return "Player consumed " + consumableItem;
-        }
-        else {
+        } else {
             return "Please pick up item before consumption";
         }
     }

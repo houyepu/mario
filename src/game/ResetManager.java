@@ -26,10 +26,11 @@ public class ResetManager {
 
     /**
      * Get the singleton instance of reset manager
+     *
      * @return ResetManager singleton instance
      */
-    public static ResetManager getInstance(){
-        if(instance == null){
+    public static ResetManager getInstance() {
+        if (instance == null) {
             instance = new ResetManager();
         }
         return instance;
@@ -38,7 +39,7 @@ public class ResetManager {
     /**
      * Constructor
      */
-    private ResetManager(){
+    private ResetManager() {
         resettableList = new ArrayList<>();
     }
 
@@ -46,8 +47,8 @@ public class ResetManager {
      * Reset the game by traversing through all the list
      * By doing this way, it will avoid using `instanceof` all over the place.
      */
-    public void run(GameMap map){
-        for(Resettable resettable: resettableList){
+    public void run(GameMap map) {
+        for (Resettable resettable : resettableList) {
             resettable.resetInstance(map);
         }
     }
@@ -56,15 +57,17 @@ public class ResetManager {
      * Add the Resettable instance to the list
      * FIXME: it does nothing, you need to implement it :)
      */
-    public void appendResetInstance(Resettable reset){ this.resettableList.add(reset);
+    public void appendResetInstance(Resettable reset) {
+        this.resettableList.add(reset);
     }
 
 
     /**
      * Remove a Resettable instance from the list
+     *
      * @param resettable resettable object
-     * FIXME: it does nothing, you need to implement it :)
      */
-    public void cleanUp(Resettable resettable){ this.resettableList.remove(resettable);
+    public void cleanUp(Resettable resettable) {
+        this.resettableList.remove(resettable);
     }
 }

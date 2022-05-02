@@ -29,7 +29,6 @@ public abstract class ConsumableItem extends Item implements Consumable {
     }
 
     /**
-     *
      * @return Whether the consume action has been assigned to this consumable (able to be consumed)
      */
     public boolean isActionAssigned() {
@@ -37,7 +36,6 @@ public abstract class ConsumableItem extends Item implements Consumable {
     }
 
     /**
-     *
      * @param actionAssigned Set whether the consume action has been assigned to this consumable
      */
     public void setActionAssigned(boolean actionAssigned) {
@@ -55,8 +53,9 @@ public abstract class ConsumableItem extends Item implements Consumable {
 
     /**
      * Tick method overridden by this actor; makes item in actors inventory aware of the passage of time
+     *
      * @param currentLocation The location of the actor carrying this Item.
-     * @param actor The actor carrying this Item.
+     * @param actor           The actor carrying this Item.
      * @see Item#tick(Location, Actor)
      */
     @Override

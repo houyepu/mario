@@ -35,15 +35,16 @@ public class ExecuteAction extends Action {
 
     /**
      * Used to execute the Koopa; breaks their shell (removes them) and drops a SuperMushroom
+     *
      * @param actor The actor performing the action.
-     * @param map The map the actor is on.
-     * @return    A string to show success/failure
+     * @param map   The map the actor is on.
+     * @return A string to show success/failure
      */
     @Override
     public String execute(Actor actor, GameMap map) {
         String result;
         // If the target is a Koopa, unconscious and the player has a wrench equipped
-        if (!target.isConscious() && target.hasCapability(Status.DORMANT) && actor.getWeapon().verb().equals(verb)){
+        if (!target.isConscious() && target.hasCapability(Status.DORMANT) && actor.getWeapon().verb().equals(verb)) {
             ActionList dropActions = new ActionList();
             // drop all items
             for (Item item : target.getInventory())
@@ -53,8 +54,7 @@ public class ExecuteAction extends Action {
             // remove actor
             map.removeActor(target);
             result = target + " is executed.";
-        }
-        else {
+        } else {
             result = target + " cannot be executed at the moment.";
         }
 
@@ -62,9 +62,8 @@ public class ExecuteAction extends Action {
     }
 
     /**
-     *
      * @param actor The actor performing the action.
-     * @return      A string to be displayed in the menu
+     * @return A string to be displayed in the menu
      */
     @Override
     public String menuDescription(Actor actor) {

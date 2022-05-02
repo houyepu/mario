@@ -47,7 +47,6 @@ public class Mature extends Ground {
     }
 
     /**
-     *
      * @param location The Mature tree object
      */
     @Override
@@ -65,7 +64,7 @@ public class Mature extends Ground {
 
             int surroundingDirt = 0; // calculate how many surrounding tiles are valid locations to grow a new sapling
             for (Exit exit : surroundingLocations) {
-                if (exit.getDestination().getGround().getDisplayChar() == '.' ) {
+                if (exit.getDestination().getGround().getDisplayChar() == '.') {
                     surroundingDirt++;
                 }
             }
@@ -80,8 +79,7 @@ public class Mature extends Ground {
                 if (exit.getDestination().getGround().getDisplayChar() == '.' && i == newSproutTile && !exit.getDestination().containsAnActor()) { // if this is the growth tile, grow a sprout
                     exit.getDestination().setGround(new Sprout());
                     break;
-                }
-                else{
+                } else {
                     i++;
                 }
             }

@@ -1,4 +1,5 @@
 package game.actions;
+
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
@@ -26,6 +27,7 @@ public class MonologueAction extends Action {
 
     /**
      * Constructing a toad
+     *
      * @param toad
      */
     public MonologueAction(Actor toad) {
@@ -35,8 +37,9 @@ public class MonologueAction extends Action {
 
     /**
      * When executed this will print specific lines according to the player's status and whether the player is holding a wrench
+     *
      * @param actor The actor performing the action.
-     * @param map The map the actor is on.
+     * @param map   The map the actor is on.
      * @return monologue depending on the action of the player
      */
     @Override
@@ -48,23 +51,24 @@ public class MonologueAction extends Action {
         monologue.add("You might need a wrench to smash Koopa's hard shells.");
 
         //The actor is star powered it will return line 1 to 3
-        if (actor.hasCapability(Status.STARPOWERED)){
-            return monologue.get(selectRandomNum(1,3));
+        if (actor.hasCapability(Status.STARPOWERED)) {
+            return monologue.get(selectRandomNum(1, 3));
         }
         //The actor has wrenches
-        else if (actor.getWeapon().verb().equals("wrenches")){
-            return monologue.get(selectRandomNum(0,2));
+        else if (actor.getWeapon().verb().equals("wrenches")) {
+            return monologue.get(selectRandomNum(0, 2));
         }
         //The list will randomly print all the lines
-        else{
+        else {
             System.out.println(actor.getWeapon());
-            return monologue.get(selectRandomNum(0,3));
+            return monologue.get(selectRandomNum(0, 3));
         }
 
     }
 
     /**
      * Description
+     *
      * @param actor The actor performing the action.
      * @return
      */
@@ -75,13 +79,14 @@ public class MonologueAction extends Action {
 
     /**
      * Select a random quote
+     *
      * @param min
      * @param max
      * @return
      */
-    public int selectRandomNum(int min, int max){
+    public int selectRandomNum(int min, int max) {
         // prints a random number between min and max value
-        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
         return random_int;
     }
 
