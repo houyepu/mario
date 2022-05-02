@@ -2,7 +2,8 @@ package game.trees;
 
 import edu.monash.fit2099.engine.positions.Ground;
 
-public abstract class TreeAbstract extends Ground {
+
+public abstract class TreeAbstract extends Ground  {
 
     /**
      * Constructor.
@@ -12,5 +13,4 @@ public abstract class TreeAbstract extends Ground {
     public TreeAbstract(char displayChar) {
         super(displayChar);
     }
-
 }
