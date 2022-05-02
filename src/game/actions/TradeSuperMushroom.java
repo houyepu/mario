@@ -16,30 +16,35 @@ public class TradeSuperMushroom extends Action{
      */
     private final Actor toad;
 
+    /**
+     *  price of the super mushroom
+     */
     private int price = 400;
 
+    // Adding a superMushroom
+    SuperMushroom superMushroom = new SuperMushroom();
+
     /**
-     * Constutoring a toad
+     * Constructor Super mushroom
      * @param toad
      */
     public TradeSuperMushroom(Actor toad) {
         this.toad = toad;
     }
 
-    // Making a superMushroom to test trading
-    SuperMushroom superMushroom = new SuperMushroom();
-
     /**
      * Trade with toad
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return
+     * @return "Thanks for purchasing super mushroom"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        //Check if wallet is less than the price
         if (Player.wallet < price){
             return "Not enough money to buy a super mushroom";
         }
+        //Add item to the inventory wallet minus the price
         else {
             actor.addItemToInventory(superMushroom);
             Player.wallet -= price;
@@ -51,7 +56,7 @@ public class TradeSuperMushroom extends Action{
     /**
      * Description
      * @param actor The actor performing the action.
-     * @return
+     * @return "Mario buys Super Mushroom for ($400)"
      */
     @Override
     public String menuDescription(Actor actor) {
