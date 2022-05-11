@@ -1,6 +1,5 @@
 package game;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
 import game.enemies.Koopa;
 import game.highgrounds.Wall;
+import game.highgrounds.WarpPipe;
 import game.toad.Toad;
 import game.highgrounds.trees.Mature;
 import game.highgrounds.trees.Sapling;
