@@ -26,7 +26,7 @@ public class Lava extends HighGround {
         super.tick(location);
         if (location.containsAnActor()) {
             location.getActor().hurt(LAVA_DAMAGE);
-            System.out.println("The " + location.getActor() + " takes " + LAVA_DAMAGE + " points of damage from standing in lava.");
+            System.out.println(location.getActor() + " takes " + LAVA_DAMAGE + " points of damage from standing in lava.");
         }
     }
 }
