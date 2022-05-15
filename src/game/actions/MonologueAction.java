@@ -48,7 +48,10 @@ public class MonologueAction extends Action {
         monologue.add("You might need a wrench to smash Koopa's hard shells.");
 
         //The actor is star powered it will return line 1 to 3
-        if (actor.hasCapability(Status.STARPOWERED)){
+        if (actor.hasCapability(Status.STARPOWERED) & actor.getWeapon().verb().equals("wrenches")){
+            return monologue.get(selectRandomNum(1,2));
+        }
+        else if (actor.hasCapability(Status.STARPOWERED)){
             return monologue.get(selectRandomNum(1,3));
         }
         //The actor has wrenches
