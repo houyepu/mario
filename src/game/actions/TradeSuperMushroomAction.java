@@ -1,4 +1,5 @@
 package game.actions;
+
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
@@ -8,7 +9,7 @@ import game.consumables.SuperMushroom;
 /**
  * Trade toad with a super mushroom
  */
-public class TradeSuperMushroomAction extends Action{
+public class TradeSuperMushroomAction extends Action {
 
     /**
      * toad
@@ -16,7 +17,7 @@ public class TradeSuperMushroomAction extends Action{
     private final Actor toad;
 
     /**
-     *  price of the super mushroom
+     * price of the super mushroom
      */
     private int price = 400;
 
@@ -25,6 +26,7 @@ public class TradeSuperMushroomAction extends Action{
 
     /**
      * Constructor Super mushroom
+     *
      * @param toad
      */
     public TradeSuperMushroomAction(Actor toad) {
@@ -33,27 +35,29 @@ public class TradeSuperMushroomAction extends Action{
 
     /**
      * Trade with toad
+     *
      * @param actor The actor performing the action.
-     * @param map The map the actor is on.
+     * @param map   The map the actor is on.
      * @return "Thanks for purchasing super mushroom"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
         //Check if wallet is less than the price
-        if (Player.wallet < price){
+        if (Player.wallet < price) {
             return "Not enough money to buy a super mushroom";
         }
         //Add item to the inventory wallet minus the price
         else {
             actor.addItemToInventory(superMushroom);
             Player.wallet -= price;
-            System.out.println("now player has"+actor.getInventory());
+            System.out.println("now player has" + actor.getInventory());
             return "Thanks for purchasing super mushroom";
         }
     }
 
     /**
      * Description
+     *
      * @param actor The actor performing the action.
      * @return "Mario buys Super Mushroom for ($400)"
      */

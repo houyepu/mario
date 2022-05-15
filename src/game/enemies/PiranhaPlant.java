@@ -2,52 +2,34 @@ package game.enemies;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
-import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
-import game.*;
+import game.Player;
+import game.Status;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.FollowBehaviour;
 import game.behaviours.WanderBehaviour;
 
-import java.util.Random;
+public class PiranhaPlant extends Enemy{
 
-/**
- * A little fungus guy.
- */
-public class Goomba extends Enemy {
-
-    /**
-     * The probability/chance of a Goomba committing suicide
-     */
-    private final int suicideRate = 10;
-
-    /**
-     * Random number generator
-     */
-    protected Random rand = new Random();
-
-    /**
-     * Constructor.
-     *
-     * @see Enemy
-     */
-    public Goomba() {
-        super("Goomba", 'g', 20);
+    public PiranhaPlant() {
+        super("Piranha Plant", 'Y', 150);
         this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
-        this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
-        this.behaviours.put(30, new WanderBehaviour()); // Adds wander behaviour to NPC; sets as lowest priority
     }
 
+
+
+
     /**
-     * @return IntrinsicWeapon of the Goomba
+     * @return IntrinsicWeapon of the PiranhaPlant
      */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(10, "kicks");
+        return new IntrinsicWeapon(90, "chomps");
     }
 
     /**
@@ -77,12 +59,7 @@ public class Goomba extends Enemy {
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        // If the random integer is less than the suicide rate; remove this actor
-        if (rand.nextInt(100) <= getSuicideRate()) {
-            map.removeActor(this);
-            System.out.println("Goomba was depressed and decided he couldn't take Mario's abuse any longer");
-            return new DoNothingAction();
-        }
+
 
         for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
@@ -92,10 +69,4 @@ public class Goomba extends Enemy {
         return new DoNothingAction();
     }
 
-    /**
-     * @return The chance of a goomba committing suicide
-     */
-    public int getSuicideRate() {
-        return suicideRate;
-    }
 }

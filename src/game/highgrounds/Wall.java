@@ -11,43 +11,45 @@ import game.actions.JumpAction;
  */
 public class Wall extends HighGround {
 
-	/**
-	 * Constructor
-	 * @see edu.monash.fit2099.engine.positions.Ground
-	 */
-	public Wall() {
-		super('#');
-	}
+    /**
+     * Constructor
+     *
+     * @see edu.monash.fit2099.engine.positions.Ground
+     */
+    public Wall() {
+        super('#');
+    }
 
-	/**
-	 * Success chance (as a percentage) to jump onto this
-	 */
-	public int jumpSuccessChance = 80;
-	/**
-	 * Damage taken by failing to jump onto this object
-	 */
-	public int jumpFailureDamage = 20;
+    /**
+     * Success chance (as a percentage) to jump onto this
+     */
+    public int jumpSuccessChance = 80;
+    /**
+     * Damage taken by failing to jump onto this object
+     */
+    public int jumpFailureDamage = 20;
 
-	public int getJumpSuccessChance() {
-		return jumpSuccessChance;
-	}
+    public int getJumpSuccessChance() {
+        return jumpSuccessChance;
+    }
 
-	public int getJumpFailureDamage() {
-		return jumpFailureDamage;
-	}
+    public int getJumpFailureDamage() {
+        return jumpFailureDamage;
+    }
 
-	/**
-	 * Checks if actor can enter this tile.
-	 * @param actor the Actor attempting to enter
-	 * @return if the Actor is able to enter
-	 */
-	@Override
-	public boolean canActorEnter(Actor actor) {
-		return actor.hasCapability(Status.STARPOWERED); // only allows an actor to enter if it is affected by a power star
-	}
+    /**
+     * Checks if actor can enter this tile.
+     *
+     * @param actor the Actor attempting to enter
+     * @return if the Actor is able to enter
+     */
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return actor.hasCapability(Status.STARPOWERED); // only allows an actor to enter if it is affected by a power star
+    }
 
-	@Override
-	public boolean blocksThrownObjects() {
-		return true;
-	}
+    @Override
+    public boolean blocksThrownObjects() {
+        return true;
+    }
 }

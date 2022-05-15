@@ -23,17 +23,22 @@ public class JumpAction extends Action {
     public String execute(Actor actor, GameMap map) {
 
         char displayChar = location.getGround().getDisplayChar();
+        String outMsg;
 
         if (actor.hasCapability(Status.SHROOMPOWERED)) {
             map.moveActor(Player.getInstance(), location);
-            return ("Successful jump to (" + location.x() + "," + location.y()+")");
+            outMsg = ("Successful jump to (" + location.x() + "," + location.y()+")");
         } else if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {
             map.moveActor(Player.getInstance(), location);
-            return ("Successful jump to (" + location.x() + "," + location.y()+")");
+            outMsg = ("Successful jump to (" + location.x() + "," + location.y()+")");
         } else {
             Player.getInstance().hurt(highGround.getJumpFailureDamage());
-            return ("Mario falls and takes " + highGround.getJumpFailureDamage() + " damage!");
+            outMsg = ("Successful jump to (" + location.x() + "," + location.y()+")");
         }
+        if (location.getGround().getDisplayChar() == 'L') {
+            outMsg+=". Holy shit, that's lava! Oh wow, that burns really bad!";
+        }
+        return outMsg;
 
     }
 

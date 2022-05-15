@@ -16,8 +16,9 @@ public class ResetAction extends Action {
 
     /**
      * Resets every resettable
+     *
      * @param actor The actor performing the action.
-     * @param map The map the actor is on.
+     * @param map   The map the actor is on.
      * @return string indicating it has been resetted
      */
     @Override
@@ -29,6 +30,7 @@ public class ResetAction extends Action {
 
     /**
      * Overriding description
+     *
      * @param actor The actor performing the action.
      * @return "Reset the game"
      */
@@ -39,6 +41,7 @@ public class ResetAction extends Action {
 
     /**
      * Change of hotkey
+     *
      * @return "r"
      */
     @Override

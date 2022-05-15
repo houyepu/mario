@@ -42,7 +42,6 @@ public abstract class HighGround extends Ground {
     }
 
     /**
-     *
      * @param actor the Actor to check if it can enter the tile
      * @return if the player is able to walk onto the tile
      */
@@ -52,9 +51,8 @@ public abstract class HighGround extends Ground {
     } //only allowed to walk onto high ground without a jump if you are star powered.
 
     /**
-     *
-     * @param actor the Actor who may be able to jump
-     * @param location the Location the actor is potentially able
+     * @param actor     the Actor who may be able to jump
+     * @param location  the Location the actor is potentially able
      * @param direction the direction of the high ground from the Actor
      * @return nothing, or a new jump action to a high ground if valid
      */
@@ -70,7 +68,6 @@ public abstract class HighGround extends Ground {
     }
 
     /**
-     *
      * @param location The location of the Ground that is being influenced by the passage of time (or potentially destroyed).
      */
     @Override
@@ -79,13 +76,12 @@ public abstract class HighGround extends Ground {
 
         if (location.containsAnActor() && Player.getInstance().hasCapability(Status.STARPOWERED)) {
             location.setGround(new Dirt()); //if there is a star powered player on a high ground tile, destroy the highground (replace with dirt)
-            location.addItem(new Coin("coin",'$',true,5)); //and then spawn a $5 coin
+            location.addItem(new Coin("coin", '$', true, 5)); //and then spawn a $5 coin
         }
     }
 
     /**
-     *
-     * @param location location object the player is able to jump to
+     * @param location  location object the player is able to jump to
      * @param direction where the location to jump to is, relative to the player
      * @return a jump action to the console that the user can make the Player perform
      */

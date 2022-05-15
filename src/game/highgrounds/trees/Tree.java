@@ -47,9 +47,8 @@ public abstract class Tree extends HighGround implements Resettable {
     }
 
     /**
-     *
-     * @param actor the Actor who may be able to jump
-     * @param location the Location the actor is potentially able to jump to
+     * @param actor     the Actor who may be able to jump
+     * @param location  the Location the actor is potentially able to jump to
      * @param direction the direction of the high ground from the Actor
      * @return a jump action, if it is a valid jump
      */
@@ -63,7 +62,6 @@ public abstract class Tree extends HighGround implements Resettable {
     }
 
     /**
-     *
      * @see HighGround
      */
     public String menuDescription(Actor actor, Location location, String direction) {

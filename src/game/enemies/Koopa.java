@@ -82,7 +82,6 @@ public class Koopa extends Enemy {
     }
 
     /**
-     *
      * @return The display character that reflects whether the Koopa is unconscious
      */
     @Override

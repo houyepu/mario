@@ -25,6 +25,7 @@ public class Toad extends Actor {
 
     /**
      * Toad will do nothing for each playTurn
+     *
      * @param actions    collection of possible Actions for this Actor
      * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
      * @param map        the map containing the Actor
@@ -38,6 +39,7 @@ public class Toad extends Actor {
 
     /**
      * Toad can talk to the player and trade with the player
+     *
      * @param otherActor the Actor that might be performing attack
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap

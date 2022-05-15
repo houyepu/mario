@@ -31,7 +31,6 @@ public abstract class Enemy extends Actor implements Resettable {
     }
 
     /**
-     *
      * @return All the behaviours that an enemy may take
      */
     public Map<Integer, Behaviour> getBehaviours() {
@@ -41,7 +40,8 @@ public abstract class Enemy extends Actor implements Resettable {
 
     /**
      * Resets this instance; removes it from the map
-     * @param map   The map from which the actor will be removed
+     *
+     * @param map The map from which the actor will be removed
      */
     @Override
     public void resetInstance(GameMap map) {

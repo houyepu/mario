@@ -1,0 +1,41 @@
+REQ1: Lava zone
+----------------
+Member: Jack
+
+Deliverables:
+Functional: 20/05/2022
+Refine: 21/05/2022
+
+REQ2: More allies and enemies!
+------------------------------
+Member: Joel
+
+Deliverables:
+Functional: 20/05/2022
+Refine: 21/05/2022
+
+REQ3: Magical fountain
+-----------------------
+Member: Yepu
+
+Deliverables:
+Functional: 20/05/2022
+Refine: 21/05/2022
+
+REQ4: Music Box (Audio implementation)
+--------------------------------------
+Member/s: Yepu, Joel, Jack
+
+Deliverables:
+Functional: 20/05/2022
+Refine: 21/05/2022
+
+REQ5: Jojo Stands (Ally implementation)
+-----------------------------------------
+Member/s: Yepu, Joel, Jack
+
+Deliverables:
+Functional: 20/05/2022
+
+
+Joel - I ACCEPT THIS WBA

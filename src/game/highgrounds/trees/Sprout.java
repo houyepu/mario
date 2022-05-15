@@ -41,13 +41,13 @@ public class Sprout extends Tree {
 
     /**
      * Constructor
+     *
      * @see edu.monash.fit2099.engine.positions.Ground
      */
     public Sprout() {
         super('+');
         turnsAlive = 0;
     }
-
 
 
     @Override
