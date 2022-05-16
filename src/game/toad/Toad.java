@@ -20,7 +20,7 @@ public class Toad extends Actor {
      * Toad is an actor
      */
     public Toad() {
-        super("Toad", 'B', 10000);
+        super("Toad", 'O', 10000);
     }
 
     /**

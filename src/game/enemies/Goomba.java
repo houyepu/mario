@@ -37,8 +37,6 @@ public class Goomba extends Enemy {
      */
     public Goomba() {
         super("Goomba", 'g', 20);
-        this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
-        this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
         this.behaviours.put(30, new WanderBehaviour()); // Adds wander behaviour to NPC; sets as lowest priority
     }
 
