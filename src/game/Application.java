@@ -11,6 +11,7 @@ import edu.monash.fit2099.engine.positions.World;
 import game.allies.PrincessPeach;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
+import game.enemies.Bowser;
 import game.enemies.Koopa;
 import game.highgrounds.Wall;
 import game.highgrounds.WarpPipe;
@@ -75,6 +76,7 @@ public class Application {
 
 			world.addPlayer(mario, gameMap.at(42, 10));
 			gameMap.at(43, 10).addActor(new PrincessPeach());
+			gameMap.at(45, 10).addActor(new Bowser());
 
 
 			//gameMap.at(34, 10).addActor(new Goomba());
@@ -83,7 +85,7 @@ public class Application {
 			//gameMap.at(35, 10).addActor(new Goomba());
 
 			// Toad
-			gameMap.at(45,10).addActor(new Toad());
+			//gameMap.at(45,10).addActor(new Toad());
 
 			// Testing out the coin
 			Coin coin = new Coin("coin",'$',true,20);
@@ -92,10 +94,10 @@ public class Application {
 			gameMap.at(42,12).addItem(coin);
 
 			// Test for wrench
-			gameMap.at(42,7).addItem(new Wrench());
+			/*gameMap.at(42,7).addItem(new Wrench());
 			gameMap.at(42,8).addItem(new SuperMushroom());
 			gameMap.at(42,9).addItem(new PowerStar());
-			gameMap.at(44,9).addItem(new Key());
+			gameMap.at(44,9).addItem(new Key());*/
 
 			world.run();
 	}

@@ -27,6 +27,7 @@ public class Koopa extends Enemy {
      */
     public Koopa() {
         super("Koopa", 'K', 100);
+        this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
         this.behaviours.put(30, new WanderBehaviour()); // Adds wander behaviour to NPC; sets as lowest priority
         this.addItemToInventory(new SuperMushroom()); // Adds a super mushroom to the inventory of the Koopa (drops when killed)
     }
