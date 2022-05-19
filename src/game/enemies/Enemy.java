@@ -2,8 +2,11 @@ package game.enemies;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.Player;
+import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
 import game.Resettable;
+import game.behaviours.FollowBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +31,7 @@ public abstract class Enemy extends Actor implements Resettable {
     public Enemy(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
         registerInstance(); // Sets this as a resettable instance
+        this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
     }
 
     /**
