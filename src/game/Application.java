@@ -11,6 +11,8 @@ import edu.monash.fit2099.engine.positions.World;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
 import game.enemies.Koopa;
+import game.fountain.HealthFountain;
+import game.fountain.PowerFountain;
 import game.highgrounds.Wall;
 import game.highgrounds.WarpPipe;
 import game.toad.Toad;
@@ -89,6 +91,7 @@ public class Application {
 
 			gameMap.at(42,12).addItem(coin);
 
+			gameMap.at(43,10).setGround(new HealthFountain());
 			// Test for wrench
 			gameMap.at(42,7).addItem(new Wrench());
 			gameMap.at(42,8).addItem(new SuperMushroom());

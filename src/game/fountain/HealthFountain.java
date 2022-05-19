@@ -1,26 +1,18 @@
 package game.fountain;
 
-import edu.monash.fit2099.engine.actions.ActionList;
-import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.positions.Ground;
-import edu.monash.fit2099.engine.positions.Location;
-import game.actions.*;
+import game.Player;
 
-public class HealthFountain extends Ground {
-
+public class HealthFountain extends Fountain implements Fillwater{
+    private Water healthwater;
     /**
      * Constructor.
      *
-     * @param displayChar character to display for this type of terrain
      */
-    public HealthFountain(char displayChar) {
+    public HealthFountain() {
         super('H');
+        this.healthwater = healthwater;
     }
-    public ActionList allowableActions(Actor actor, Location location, String direction){
-        ActionList actions = new ActionList();
-
-        actions.add(new FillwaterAction());
-
-        return actions;
+    public void fill(){
+        Player.Bottle.push(healthwater);
     }
 }

@@ -7,7 +7,9 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.actions.*;
-import game.consumables.Bottle;
+import game.fountain.Water;
+
+import java.util.Stack;
 
 /**
  * Class representing the Player.
@@ -26,15 +28,12 @@ public class Player extends Actor implements Resettable{
 	private int powerUpTime;
 
 	/**
-	 * A bottle item that mario carries at the start of game
-	 */
-	private	static Bottle bottle;
-	/**
 	 * This is a global attribute of wallet. Because we think that for the design requirement there will only be one player hence this
 	 * means that one player can only have one single wallet. Therefore it is easier to make wallet a global var.
 	 */
 	public static int wallet;
 
+	public static Stack<Water> Bottle;
 	/**
 	 * Static reference to the player (used in conjunction with singleton pattern)
 	 */
@@ -50,7 +49,7 @@ public class Player extends Actor implements Resettable{
 		wallet = 1000; // Initial starting amount of money
 		player = null; // Player reference is null
 		registerInstance(); // Registers this instance as resettable
-		this.bottle = bottle; // bottle
+		Stack<Water> bottle = new Stack<Water>();
 	}
 
 	/**
@@ -63,7 +62,6 @@ public class Player extends Actor implements Resettable{
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		Player.player.addItemToInventory(bottle);
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();

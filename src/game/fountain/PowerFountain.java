@@ -1,15 +1,19 @@
 package game.fountain;
 
-import edu.monash.fit2099.engine.positions.Ground;
+import game.Player;
 
-public class PowerFountain extends Ground {
-
+public class PowerFountain extends Fountain {
+    private Water powerwater;
     /**
      * Constructor.
      *
-     * @param displayChar character to display for this type of terrain
      */
-    public PowerFountain(char displayChar) {
+    public PowerFountain() {
         super('A');
+        this.powerwater = powerwater;
+    }
+
+    public void fill(){
+        Player.Bottle.push(powerwater);
     }
 }
