@@ -1,19 +1,27 @@
 package game.fountain;
 
-import game.Player;
+import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.Ground;
+import edu.monash.fit2099.engine.positions.Location;
+import game.Status;
+import game.actions.FillPowerWaterAction;
 
-public class PowerFountain extends Fountain {
-    private Water powerwater;
+public class PowerFountain extends Ground {
     /**
      * Constructor.
      *
      */
     public PowerFountain() {
         super('A');
-        this.powerwater = powerwater;
     }
 
-    public void fill(){
-        Player.Bottle.push(powerwater);
+    @Override
+    public ActionList allowableActions(Actor actor, Location location, String direction) {
+        ActionList actions = new ActionList();
+        if (actor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
+            actions.add(new FillPowerWaterAction());
+        }
+        return actions;
     }
 }

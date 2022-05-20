@@ -3,18 +3,15 @@ package game.actions;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.Player;
-import game.consumables.ConsumableItem;
-import game.fountain.Water;
+import game.fountain.Bottle;
 
-public class FillwaterAction extends Action {
-    private Water water;
+public class FillHealthWaterAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        water.fill();
-        System.out.println(Player.Bottle);
-        return null;
+        Bottle.bottle.push("HealthWater");
+        System.out.println(Bottle.bottle);
+        return "Mario has refilled his water";
     }
 
     @Override

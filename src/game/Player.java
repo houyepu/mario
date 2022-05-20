@@ -7,7 +7,6 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.actions.*;
-import game.fountain.Water;
 
 import java.util.Stack;
 
@@ -33,7 +32,6 @@ public class Player extends Actor implements Resettable{
 	 */
 	public static int wallet;
 
-	public static Stack<Water> Bottle;
 	/**
 	 * Static reference to the player (used in conjunction with singleton pattern)
 	 */
@@ -49,7 +47,6 @@ public class Player extends Actor implements Resettable{
 		wallet = 1000; // Initial starting amount of money
 		player = null; // Player reference is null
 		registerInstance(); // Registers this instance as resettable
-		Stack<Water> bottle = new Stack<Water>();
 	}
 
 	/**

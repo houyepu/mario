@@ -91,16 +91,16 @@ public class Application {
 
 			// Testing out the coin
 			Coin coin = new Coin("coin",'$',true,20);
-			gameMap.at(42,11).addItem(coin);
 
-			gameMap.at(42,12).addItem(coin);
+			gameMap.at(42,11).setGround(new HealthFountain());
+			gameMap.at(42,12).setGround(new PowerFountain());
 
-			gameMap.at(43,10).setGround(new HealthFountain());
 			// Test for wrench
 			/*gameMap.at(42,7).addItem(new Wrench());
 			gameMap.at(42,8).addItem(new SuperMushroom());
 			gameMap.at(42,9).addItem(new PowerStar());
-			gameMap.at(44,9).addItem(new Key());*/
+			gameMap.at(44,9).addItem(new Kea
+			y());*/
 
 			world.run();
 	}
