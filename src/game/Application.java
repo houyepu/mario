@@ -35,7 +35,7 @@ public class Application {
 
 			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Mature(), new Sapling(), new Sprout(), new Lava(), new WarpPipe(), new HealthFountain(), new PowerFountain());
 
-			List<String> map = Arrays.asList(
+			List<String> mapOverWorld = Arrays.asList(
 				"..........................................##....................................",
 				"............+...............................#...................................",
 				"............................................#...................................",
@@ -55,6 +55,29 @@ public class Application {
 				"...................+.......................A.........#..........................",
 				"......................................................#.........................",
 				".......................................................##.......................");
+
+		List<String> mapLavaWorld = Arrays.asList(
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				".....................................L..........................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................",
+				"................................................................................");
+
+
 /*
 			//populate the map with random sprouts
 			int sproutSpawnChance = 1; //per tile
@@ -71,18 +94,22 @@ public class Application {
 		 */
 
 
-			GameMap gameMap = new GameMap(groundFactory, map);
-			world.addGameMap(gameMap);
+			GameMap gameMapOverWorld = new GameMap(groundFactory, mapOverWorld);
+			GameMap gameMapLavaWorld = new GameMap(groundFactory, mapLavaWorld);
+			world.addGameMap(gameMapOverWorld);
+			world.addGameMap(gameMapLavaWorld);
+
+
 
 			Actor mario = Player.getInstance();
 
-			world.addPlayer(mario, gameMap.at(42, 10));
-			gameMap.at(43, 10).addActor(new PrincessPeach());
-			gameMap.at(45, 10).addActor(new Bowser());
+			world.addPlayer(mario, gameMapOverWorld.at(42, 10));
+			gameMapOverWorld.at(43, 10).addActor(new PrincessPeach());
+			gameMapOverWorld.at(45, 10).addActor(new Bowser());
 
 
 			//gameMap.at(34, 10).addActor(new Goomba());
-			gameMap.at(35, 10).addActor(new Koopa());
+			gameMapOverWorld.at(35, 10).addActor(new Koopa());
 
 			//gameMap.at(35, 10).addActor(new Goomba());
 
@@ -92,8 +119,8 @@ public class Application {
 			// Testing out the coin
 			Coin coin = new Coin("coin",'$',true,20);
 
-			gameMap.at(42,11).setGround(new HealthFountain());
-			gameMap.at(42,12).setGround(new PowerFountain());
+			gameMapOverWorld.at(42,11).setGround(new HealthFountain());
+			gameMapOverWorld.at(42,12).setGround(new PowerFountain());
 
 			// Test for wrench
 			/*gameMap.at(42,7).addItem(new Wrench());
