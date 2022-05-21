@@ -57,7 +57,7 @@ public class WarpPipe extends HighGround {
         }
 
         if (location.containsAnActor()) {
-            if (location.getActor().getDisplayChar() == 'm') {
+            if (location.getActor().getDisplayChar() == 'm' || location.getActor().getDisplayChar() == 'M') {
                 actions.add(new TeleportAction(location));
             }
         }

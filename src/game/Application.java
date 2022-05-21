@@ -1,18 +1,23 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import edu.monash.fit2099.demo.mars.items.MartianItem;
+import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.World;
 import game.allies.PrincessPeach;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
 import game.enemies.Bowser;
 import game.enemies.Koopa;
+import game.enemies.PiranhaPlant;
 import game.fountain.HealthFountain;
 import game.fountain.PowerFountain;
 import game.highgrounds.Wall;
@@ -94,11 +99,14 @@ public class Application {
 		 */
 
 
-			GameMap gameMapOverWorld = new GameMap(groundFactory, mapOverWorld);
-			GameMap gameMapLavaWorld = new GameMap(groundFactory, mapLavaWorld);
+			GameMap gameMapOverWorld;
+			GameMap gameMapLavaWorld;
+			gameMapOverWorld = new GameMap(groundFactory, mapOverWorld);
+			gameMapLavaWorld = new GameMap(groundFactory, mapLavaWorld);
 			world.addGameMap(gameMapOverWorld);
 			world.addGameMap(gameMapLavaWorld);
 
+			Location lavaTeleportLocation = gameMapLavaWorld.at(1,1);
 
 
 			Actor mario = Player.getInstance();
