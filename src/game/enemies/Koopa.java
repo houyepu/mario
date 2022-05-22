@@ -66,21 +66,6 @@ public class Koopa extends Enemy {
     }
 
     /**
-     * Figure out what to do next.
-     *
-     * @see Actor#playTurn(ActionList, Action, GameMap, Display)
-     */
-    @Override
-    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
-            Action action = Behaviour.getAction(this, map);
-            if (action != null)
-                return action;
-        }
-        return new DoNothingAction();
-    }
-
-    /**
      * @return The display character that reflects whether the Koopa is unconscious
      */
     @Override

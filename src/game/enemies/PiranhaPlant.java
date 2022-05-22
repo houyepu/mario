@@ -18,11 +18,7 @@ public class PiranhaPlant extends Enemy{
 
     public PiranhaPlant() {
         super("Piranha Plant", 'Y', 150);
-        this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
     }
-
-
-
 
     /**
      * @return IntrinsicWeapon of the PiranhaPlant
@@ -51,22 +47,4 @@ public class PiranhaPlant extends Enemy{
         }
         return actions;
     }
-
-    /**
-     * Figure out what to do next.
-     *
-     * @see Actor#playTurn(ActionList, Action, GameMap, Display)
-     */
-    @Override
-    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-
-
-        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
-            Action action = Behaviour.getAction(this, map);
-            if (action != null)
-                return action;
-        }
-        return new DoNothingAction();
-    }
-
 }

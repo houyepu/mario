@@ -12,6 +12,7 @@ import game.Player;
 import game.Status;
 import game.actions.AttackAction;
 import game.behaviours.FollowBehaviour;
+import game.behaviours.MonologueBehaviour;
 
 public class Bowser extends Enemy{
     /**
@@ -34,16 +35,6 @@ public class Bowser extends Enemy{
             actions.add(new AttackAction(this, direction));
         }
         return actions;
-    }
-
-    @Override
-    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
-            Action action = Behaviour.getAction(this, map);
-            if (action != null)
-                return action;
-        }
-        return new DoNothingAction();
     }
 
     @Override

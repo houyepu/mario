@@ -85,12 +85,7 @@ public class Goomba extends Enemy {
             return new DoNothingAction();
         }
 
-        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
-            Action action = Behaviour.getAction(this, map);
-            if (action != null)
-                return action;
-        }
-        return new DoNothingAction();
+        return super.playTurn(actions, lastAction, map, display);
     }
 
     /**

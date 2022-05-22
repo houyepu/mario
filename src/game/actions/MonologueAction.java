@@ -46,7 +46,7 @@ public class MonologueAction extends Action {
 
         // Adding monologues to bowser
         if (speakingActor.toString().equals("Bowser")) {
-            monologue.add("Imma give princess peach a real nice time tonight");
+            monologue.add("Imma show princess peach a real nice time tonight");
             monologue.add("What was that sound? Oh, just a fire.");
             monologue.add("Princess Peach! You are formally invited... to the creation of my new kingdom!");
             monologue.add("Never gonna let you down!");

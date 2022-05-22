@@ -39,6 +39,6 @@ public class MonologueBehaviour implements Behaviour {
             talkTimer--;
         }
         // do nothing
-        return new DoNothingAction();
+        return null;
     }
 }

@@ -1,6 +1,10 @@
 package game.enemies;
 
+import edu.monash.fit2099.engine.actions.Action;
+import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
 import game.behaviours.AttackBehaviour;
@@ -33,7 +37,22 @@ public abstract class Enemy extends Actor implements Resettable {
         super(name, displayChar, hitPoints);
         registerInstance(); // Sets this as a resettable instance
         this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
-        this.behaviours.put(10, new MonologueBehaviour());
+        this.behaviours.put(90, new MonologueBehaviour());
+    }
+
+    @Override
+    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        Action monologueAction =  behaviours.get(90).getAction(this, map);
+        if (monologueAction != null) {
+            System.out.println(monologueAction.execute(this, map));
+        }
+
+        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
+            Action action = Behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
+        return new DoNothingAction();
     }
 
     /**
@@ -42,7 +61,6 @@ public abstract class Enemy extends Actor implements Resettable {
     public Map<Integer, Behaviour> getBehaviours() {
         return behaviours;
     }
-
 
     /**
      * Resets this instance; removes it from the map
