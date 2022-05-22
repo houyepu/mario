@@ -18,7 +18,7 @@ public class MonologueAction extends Action {
     /**
      * A frog boi
      */
-    private final Actor toad;
+    private final Actor speakingActor;
     /**
      * Monologue is an arraylist
      */
@@ -26,11 +26,11 @@ public class MonologueAction extends Action {
 
     /**
      * Constructing a toad
-     * @param toad
+     * @param newSpeakingActor
      */
-    public MonologueAction(Actor toad) {
-        this.toad = toad;
-        monologue = new ArrayList<String>();
+    public MonologueAction(Actor newSpeakingActor) {
+        this.speakingActor = newSpeakingActor;
+        monologue = new ArrayList<>();
     }
 
     /**
@@ -41,29 +41,43 @@ public class MonologueAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        // adds list of monologues
-        monologue.add("You better get back to finding the Power Stars.");
-        monologue.add("The Princess is depending on you! You are our only hope.");
-        monologue.add("Being imprisoned in these walls can drive a fungus crazy :(");
-        monologue.add("You might need a wrench to smash Koopa's hard shells.");
 
-        //The actor is star powered it will return line 1 to 3
-        if (actor.hasCapability(Status.STARPOWERED) & actor.getWeapon().verb().equals("wrenches")){
-            return monologue.get(selectRandomNum(1,2));
+        String retString = "";
+
+        if (speakingActor.toString().equals("Bowser")) {
+            monologue.add("Imma give princess peach a real nice time tonight");
+
+            retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
+        } else if (speakingActor.toString().equals("Toad")) {
+            monologue.add("You better get back to finding the Power Stars.");
+            monologue.add("The Princess is depending on you! You are our only hope.");
+            monologue.add("Being imprisoned in these walls can drive a fungus crazy :(");
+            monologue.add("You might need a wrench to smash Koopa's hard shells.");
+
+            //The actor is star powered it will return line 1 to 3
+            if (actor.hasCapability(Status.STARPOWERED) & actor.getWeapon().verb().equals("wrenches")){
+                return monologue.get(selectRandomNum(1,2));
+            }
+            else if (actor.hasCapability(Status.STARPOWERED)){
+                return monologue.get(selectRandomNum(1,3));
+            }
+            //The actor has wrenches
+            else if (actor.getWeapon().verb().equals("wrenches")){
+                return monologue.get(selectRandomNum(0,2));
+            }
+            //The list will randomly print all the lines
+            else{
+                System.out.println(actor.getWeapon());
+                return monologue.get(selectRandomNum(0,3));
+            }
         }
-        else if (actor.hasCapability(Status.STARPOWERED)){
-            return monologue.get(selectRandomNum(1,3));
-        }
-        //The actor has wrenches
-        else if (actor.getWeapon().verb().equals("wrenches")){
-            return monologue.get(selectRandomNum(0,2));
-        }
-        //The list will randomly print all the lines
-        else{
-            System.out.println(actor.getWeapon());
-            return monologue.get(selectRandomNum(0,3));
+        else if (speakingActor.toString().equals("Princess Peach")) {
+            monologue.add("Help me Mario!");
+
+            retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         }
 
+        return actor.toString() + ": \"" + retString + "\"";
     }
 
     /**
