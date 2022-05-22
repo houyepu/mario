@@ -15,6 +15,7 @@ public class FireFlower extends ConsumableItem{
      */
     @Override
     public void consume() {
+        Player.playerPunchDamage = 20; // The player increase damage
         Player.getInstance().addCapability(Status.FIREATTACK); // The player now is going to reap the benefits of this item
         System.out.println("MARIO HAS FIRE ATTACK"); // Print out "MARIO IS INVINCIBLE" to console
     }
