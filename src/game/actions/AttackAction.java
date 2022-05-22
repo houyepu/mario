@@ -8,9 +8,11 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.weapons.Weapon;
+import game.Fire;
 import game.Status;
 import game.enemies.Koopa;
 import game.highgrounds.trees.Sprout;
+import jdk.swing.interop.SwingInterOpUtils;
 
 /**
  * Special Action for attacking other Actors.
@@ -74,6 +76,11 @@ public class AttackAction extends Action {
             // remove actor
             map.removeActor(target);
             return "The target cannot withstand the force of the Power Star";
+        }
+
+        if (actor.hasCapability(Status.FIREATTACK)) {
+            map.locationOf(target).addItem(new Fire());
+            System.out.println("Fire attack performed!");
         }
 
         int damage = weapon.damage(); // Gets the damage of the weapon
