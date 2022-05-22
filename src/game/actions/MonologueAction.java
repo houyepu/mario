@@ -44,6 +44,7 @@ public class MonologueAction extends Action {
 
         String retString = "";
 
+        // Adding monologues to bowser
         if (speakingActor.toString().equals("Bowser")) {
             monologue.add("Imma give princess peach a real nice time tonight");
             monologue.add("What was that sound? Oh, just a fire.");
@@ -52,6 +53,7 @@ public class MonologueAction extends Action {
             monologue.add("Wrrrrrrrrrrrrrrrryyyyyyyyyyyyyy!!!!");
 
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
+            // Adding monologues to toad
         } else if (speakingActor.toString().equals("Toad")) {
             monologue.add("You better get back to finding the Power Stars.");
             monologue.add("The Princess is depending on you! You are our only hope.");
@@ -75,6 +77,7 @@ public class MonologueAction extends Action {
                 return monologue.get(selectRandomNum(0,3));
             }
         }
+        // Adding monologue to princess peach
         else if (speakingActor.toString().equals("Princess Peach")) {
             monologue.add("Dear Mario, I'll be waiting for you...");
             monologue.add("Never gonna give you up !");
@@ -82,17 +85,20 @@ public class MonologueAction extends Action {
 
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         }
+        // Adding monologue to goombas
         else if (speakingActor.toString().equals("Goombas")) {
             monologue.add("Mugga mugga!");
             monologue.add("Ugha ugha... (Never gonna run around and desert you...)");
             monologue.add("Ooga-Chaka Ooga-Ooga!");
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         }
+        // Adding monologue to koopa
         else if (speakingActor.toString().equals("Koopa")) {
             monologue.add("Never gonna make you cry!");
             monologue.add("Koopi koopi koopii~!");
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         }
+        // Adding monologue to piranha plant
         else if (speakingActor.toString().equals("Piranha Plant")) {
             monologue.add("Slsstssthshs~! (Never gonna say goodbye~)");
             monologue.add("Ohmnom nom nom nom.");
