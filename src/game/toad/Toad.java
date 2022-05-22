@@ -6,18 +6,17 @@ import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.Monologue;
 import game.actions.MonologueAction;
 import game.actions.TradePowerStarAction;
 import game.actions.TradeSuperMushroomAction;
 import game.actions.TradeWrenchAction;
+import game.allies.Ally;
 
 
 /**
  * Toad that speaks to the player and sells drugs :)
  */
-public class Toad extends Actor {
-    private Monologue monologue;
+public class Toad extends Ally {
     /**
      * Toad is an actor
      */
@@ -36,7 +35,6 @@ public class Toad extends Actor {
      */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        monologue.toadmonologue();
         return new DoNothingAction();
     }
 
