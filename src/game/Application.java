@@ -131,7 +131,7 @@ public class Application {
 			gameMapOverWorld.at(42,11).setGround(new HealthFountain());
 			gameMapOverWorld.at(42,12).setGround(new PowerFountain());
 
-			mario.addItemToInventory(new Bottle("Bottle",'_',false));
+			mario.addItemToInventory(new Bottle());
 			// Test for wrench
 			/*gameMap.at(42,7).addItem(new Wrench());
 			gameMap.at(42,8).addItem(new SuperMushroom());

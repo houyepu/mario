@@ -121,5 +121,11 @@ public class Player extends Actor implements Resettable{
 		System.out.println("Mario's power-ups have warn off"); // Print notification message
 	}
 
+	protected IntrinsicWeapon getIntrinsicWeapon() {
+		return new IntrinsicWeapon(80, "punches");
+	}
+	public IntrinsicWeapon setIntrinsicWeapon(int damage) {
+		return new IntrinsicWeapon(damage,"punch");
+	}
 
 }

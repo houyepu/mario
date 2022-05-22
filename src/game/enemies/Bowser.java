@@ -41,7 +41,6 @@ public class Bowser extends Enemy{
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        monologue.bowsermonologue();
         for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)
