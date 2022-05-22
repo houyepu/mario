@@ -13,6 +13,7 @@ import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
 import game.enemies.Bowser;
 import game.enemies.Koopa;
+import game.fountain.Bottle;
 import game.fountain.HealthFountain;
 import game.fountain.PowerFountain;
 import game.highgrounds.Wall;
@@ -95,6 +96,9 @@ public class Application {
 			gameMap.at(42,11).setGround(new HealthFountain());
 			gameMap.at(42,12).setGround(new PowerFountain());
 
+			//At the start of the round Maa
+		// rio has a bottle in his inventory
+			mario.addItemToInventory(new Bottle("Bottle",'_',false));
 			// Test for wrench
 			/*gameMap.at(42,7).addItem(new Wrench());
 			gameMap.at(42,8).addItem(new SuperMushroom());

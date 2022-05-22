@@ -1,11 +1,13 @@
 package game.fountain;
 
 
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
+import edu.monash.fit2099.engine.weapons.Weapon;
 import game.Player;
 import game.consumables.ConsumableItem;
 import java.util.Stack;
 
-public class Bottle extends ConsumableItem {
+public class Bottle extends ConsumableItem  {
     public static Stack<String> bottle = new Stack<String>();
     /***
      * Constructor.
@@ -19,15 +21,17 @@ public class Bottle extends ConsumableItem {
 
     @Override
     public void consume() {
-
         String water = bottle.pop();
         if(water == "HealthWater"){
-            Player.getInstance().heal(50);
+            Player.getInstance().increaseMaxHp(100000);
+
+
         }
         else if(water == "PowerWater"){
-
         }
 
     }
+
+
 
 }

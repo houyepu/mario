@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.actions.*;
 
 import java.util.Stack;
@@ -104,6 +105,11 @@ public class Player extends Actor implements Resettable{
 	}
 
 	/**
+	 * Base attack damage increase
+	 * @return new intrinsic weapon
+	 */
+
+	/**
 	 * Resettable implementation; resets players attributes
 	 * @param map The map on which this instance exists
 	 */
@@ -114,4 +120,6 @@ public class Player extends Actor implements Resettable{
 		this.removeCapability(Status.STARPOWERED); // Removes the STARPOWERED status if applicable
 		System.out.println("Mario's power-ups have warn off"); // Print notification message
 	}
+
+
 }
