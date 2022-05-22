@@ -9,13 +9,19 @@ import game.actions.FillPowerWaterAction;
 
 public class PowerFountain extends Ground {
     /**
-     * Constructor.
-     *
+     * Power fountain constructor
      */
     public PowerFountain() {
         super('A');
     }
 
+    /**
+     * This will have fill power water action assigned to it
+     * @param actor the Actor acting
+     * @param location the current Location
+     * @param direction the direction of the Ground from the Actor
+     * @return actions
+     */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();

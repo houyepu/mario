@@ -9,12 +9,19 @@ import game.actions.FillHealthWaterAction;
 
 public class HealthFountain extends Ground {
     /**
-     * Constructor.
-     *
+     * Health fountain constructor
      */
     public HealthFountain() {
         super('H');
     }
+
+    /**
+     * This will have a fill health water action assigned to it
+     * @param actor the Actor acting
+     * @param location the current Location
+     * @param direction the direction of the Ground from the Actor
+     * @return actions
+     */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
