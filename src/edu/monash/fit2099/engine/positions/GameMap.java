@@ -256,7 +256,9 @@ public class GameMap {
 	 */
 	public void addActor(Actor actor, Location location) {
 		Objects.requireNonNull(actor);
+		if (!location.containsAnActor()) {
 		actorLocations.add(actor, location);
+		}
 	}
 
 	/**

@@ -59,20 +59,20 @@ public class Application {
 				".......................................................##.......................");
 
 		List<String> mapLavaWorld = Arrays.asList(
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				".....................................L................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................",
-				"......................................................");
+				".........................................LLLL#########",
+				".........................................LLLL#_______#",
+				"..........................................LLL###_____#",
+				"...........................................LLLL#_____#",
+				"...........................................LLLL#_____#",
+				"...........................................LLLL#_____#",
+				"...........................................LLLL#_____#",
+				"...........................................LLLL#_____#",
+				"...........................................LLLL####_##",
+				"............................................LLL#_____#",
+				".............................................LL#_____#",
+				"...............................................#_____#",
+				"...............................................______#",
+				"...............................................#######");
 
 			GameMap gameMapOverWorld;
 			GameMap gameMapLavaWorld;
@@ -89,8 +89,8 @@ public class Application {
 			gameMapOverWorld.at(42,9).addItem(new Fire());
 			gameMapOverWorld.at(42, 11).addItem(new FireFlower());
 			world.addPlayer(mario, gameMapOverWorld.at(42, 10));
-			gameMapOverWorld.at(43, 10).addActor(new PrincessPeach());
-			gameMapOverWorld.at(45, 10).addActor(new Bowser());
+			gameMapLavaWorld.at(46, 1).addActor(new PrincessPeach());
+			gameMapLavaWorld.at(51, 2).addActor(new Bowser());
 
 
 			/*MartianItem rocket = new MartianItem("Rocket", '^', false);
@@ -98,7 +98,12 @@ public class Application {
 			gameMap.at(1, 1).addItem(rocket);*/
 
 			WarpPipeLadder warpPipe = new WarpPipeLadder();
-			warpPipe.addSampleAction(new MoveActorAction(gameMapLavaWorld.at(2,2),"teleportation TIME!!"));
+			warpPipe.addSampleAction(new MoveActorAction(gameMapLavaWorld.at(2,2),"to the final lava map!"));
+
+			WarpPipeLadder warpPipe2 = new WarpPipeLadder();
+			warpPipe2.addSampleAction(new MoveActorAction(gameMapOverWorld.at(42,11),"back to the first map!"));
+			gameMapLavaWorld.at(1,1).addItem(warpPipe2);
+
 			gameMapOverWorld.at(42,11).addItem(warpPipe);
 
 
