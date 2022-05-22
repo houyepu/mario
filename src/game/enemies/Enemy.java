@@ -7,6 +7,7 @@ import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
 import game.Resettable;
 import game.behaviours.FollowBehaviour;
+import game.behaviours.MonologueBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +33,7 @@ public abstract class Enemy extends Actor implements Resettable {
         super(name, displayChar, hitPoints);
         registerInstance(); // Sets this as a resettable instance
         this.behaviours.put(10, new AttackBehaviour(Player.getInstance())); // Adds attack behaviour to NPC; sets as highest priority
+        this.behaviours.put(10, new MonologueBehaviour());
     }
 
     /**

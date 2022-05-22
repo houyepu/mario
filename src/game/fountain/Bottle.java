@@ -1,5 +1,6 @@
 package game.fountain;
 import game.Player;
+import game.Status;
 import game.consumables.ConsumableItem;
 import java.util.Stack;
 
@@ -16,10 +17,12 @@ public class Bottle extends ConsumableItem  {
             System.out.println("The bottle is empty please refill water from the fountain");
         }
         else if(bottle.pop() == "HealthWater"){
-            Player.getInstance().increaseMaxHp(50);
+            Player.getInstance().increaseMaxHp(1000000);
         }
         else if(bottle.pop() == "PowerWater"){
-            Player.getInstance().getWeapon();
+            Player.getInstance().setIntrinsicWeapon(15);
+            System.out.println("p");
+
         }
 
     }

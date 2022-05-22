@@ -38,6 +38,7 @@ public class Player extends Actor implements Resettable{
 	 */
 	private static Player player;
 
+	private int intrinsicWeapon;
 	/**
 	 * Constructor.
 	 */
@@ -48,6 +49,7 @@ public class Player extends Actor implements Resettable{
 		wallet = 1000; // Initial starting amount of money
 		player = null; // Player reference is null
 		registerInstance(); // Registers this instance as resettable
+		this.intrinsicWeapon = 5;
 	}
 
 	/**
@@ -120,12 +122,12 @@ public class Player extends Actor implements Resettable{
 		this.removeCapability(Status.STARPOWERED); // Removes the STARPOWERED status if applicable
 		System.out.println("Mario's power-ups have warn off"); // Print notification message
 	}
-
-	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(80, "punches");
-	}
-	public IntrinsicWeapon setIntrinsicWeapon(int damage) {
-		return new IntrinsicWeapon(damage,"punch");
+	@Override
+	public IntrinsicWeapon getIntrinsicWeapon() {
+		return new IntrinsicWeapon(intrinsicWeapon, "punches");
 	}
 
+	public void setIntrinsicWeapon(int intrinsicWeapon) {
+		this.intrinsicWeapon = intrinsicWeapon;
+	}
 }

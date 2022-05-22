@@ -46,6 +46,10 @@ public class MonologueAction extends Action {
 
         if (speakingActor.toString().equals("Bowser")) {
             monologue.add("Imma give princess peach a real nice time tonight");
+            monologue.add("What was that sound? Oh, just a fire.");
+            monologue.add("Princess Peach! You are formally invited... to the creation of my new kingdom!");
+            monologue.add("Never gonna let you down!");
+            monologue.add("Wrrrrrrrrrrrrrrrryyyyyyyyyyyyyy!!!!");
 
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         } else if (speakingActor.toString().equals("Toad")) {
@@ -72,8 +76,26 @@ public class MonologueAction extends Action {
             }
         }
         else if (speakingActor.toString().equals("Princess Peach")) {
-            monologue.add("Help me Mario!");
+            monologue.add("Dear Mario, I'll be waiting for you...");
+            monologue.add("Never gonna give you up !");
+            monologue.add("Release me, or I will kick you!");
 
+            retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
+        }
+        else if (speakingActor.toString().equals("Goombas")) {
+            monologue.add("Mugga mugga!");
+            monologue.add("Ugha ugha... (Never gonna run around and desert you...)");
+            monologue.add("Ooga-Chaka Ooga-Ooga!");
+            retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
+        }
+        else if (speakingActor.toString().equals("Koopa")) {
+            monologue.add("Never gonna make you cry!");
+            monologue.add("Koopi koopi koopii~!");
+            retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
+        }
+        else if (speakingActor.toString().equals("Piranha Plant")) {
+            monologue.add("Slsstssthshs~! (Never gonna say goodbye~)");
+            monologue.add("Ohmnom nom nom nom.");
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         }
 
