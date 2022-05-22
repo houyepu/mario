@@ -1,4 +1,4 @@
-package game.highgrounds.trees;
+package game.jumpablegrounds.trees;
 
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
@@ -7,12 +7,12 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.Resettable;
 import game.Status;
 import game.actions.JumpAction;
-import game.highgrounds.HighGround;
+import game.jumpablegrounds.JumpableGround;
 
 /**
  * Abstract class representing different stages of the tree lifecycle.
  */
-public abstract class Tree extends HighGround implements Resettable {
+public abstract class Tree extends JumpableGround implements Resettable {
 
     /**
      * Constructor.
@@ -62,7 +62,7 @@ public abstract class Tree extends HighGround implements Resettable {
     }
 
     /**
-     * @see HighGround
+     * @see JumpableGround
      */
     public String menuDescription(Actor actor, Location location, String direction) {
         return ("Attempt jump " + direction + " to " + location.getGround());

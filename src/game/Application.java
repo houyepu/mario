@@ -1,10 +1,8 @@
 package game;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import edu.monash.fit2099.demo.mars.items.MartianItem;
 import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
@@ -12,23 +10,19 @@ import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.World;
-import game.actions.TeleportAction;
 import game.allies.PrincessPeach;
 import game.consumables.FireFlower;
-import game.consumables.PowerStar;
-import game.consumables.SuperMushroom;
 import game.enemies.Bowser;
 import game.enemies.Koopa;
-import game.enemies.PiranhaPlant;
 import game.fountain.Bottle;
 import game.fountain.HealthFountain;
 import game.fountain.PowerFountain;
-import game.highgrounds.Wall;
-import game.highgrounds.WarpPipe;
-import game.toad.Toad;
-import game.highgrounds.trees.Mature;
-import game.highgrounds.trees.Sapling;
-import game.highgrounds.trees.Sprout;
+import game.jumpablegrounds.Lava;
+import game.jumpablegrounds.Wall;
+import game.jumpablegrounds.WarpPipe;
+import game.jumpablegrounds.trees.Mature;
+import game.jumpablegrounds.trees.Sapling;
+import game.jumpablegrounds.trees.Sprout;
 import game.wallet.Coin;
 
 /**
@@ -65,42 +59,20 @@ public class Application {
 				".......................................................##.......................");
 
 		List<String> mapLavaWorld = Arrays.asList(
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				".....................................L..........................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................",
-				"................................................................................");
-
-
-/*
-			//populate the map with random sprouts
-			int sproutSpawnChance = 1; //per tile
-			for (String i : map){
-				String[] rows = i.split("");
-				i = rows[0].replace('.','+');
-				map.set(0,"..+.......................................##....................................");
-				//System.out.println(i);
-			}*/
-		/*
-		Able to get the first string in map, aka the first row of options and convert
-		dirt tiles into sprouts, but I can't get that modified string into the original
-		map list and then move on to the next string aka row 2.
-		 */
-
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				".....................................L................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................",
+				"......................................................");
 
 			GameMap gameMapOverWorld;
 			GameMap gameMapLavaWorld;

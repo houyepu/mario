@@ -11,8 +11,6 @@ import edu.monash.fit2099.engine.weapons.Weapon;
 import game.Fire;
 import game.Status;
 import game.enemies.Koopa;
-import game.highgrounds.trees.Sprout;
-import jdk.swing.interop.SwingInterOpUtils;
 
 /**
  * Special Action for attacking other Actors.
