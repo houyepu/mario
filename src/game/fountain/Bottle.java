@@ -21,17 +21,19 @@ public class Bottle extends ConsumableItem  {
 
     @Override
     public void consume() {
-        String water = bottle.pop();
-        if(water == "HealthWater"){
-            Player.getInstance().increaseMaxHp(100000);
+        if (bottle.isEmpty()){
+            System.out.println("The bottle is empty please refill water from the fountain");
+        }
+        else if(bottle.pop() == "HealthWater"){
+            Player.getInstance().increaseMaxHp(50);
 
 
         }
-        else if(water == "PowerWater"){
+        else if(bottle.pop() == "PowerWater"){
+            System.out.println("Mario has drank power water");
         }
 
     }
-
 
 
 }

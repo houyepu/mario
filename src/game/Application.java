@@ -18,6 +18,7 @@ import game.consumables.SuperMushroom;
 import game.enemies.Bowser;
 import game.enemies.Koopa;
 import game.enemies.PiranhaPlant;
+import game.fountain.Bottle;
 import game.fountain.HealthFountain;
 import game.fountain.PowerFountain;
 import game.highgrounds.Wall;
@@ -130,6 +131,7 @@ public class Application {
 			gameMapOverWorld.at(42,11).setGround(new HealthFountain());
 			gameMapOverWorld.at(42,12).setGround(new PowerFountain());
 
+			mario.addItemToInventory(new Bottle("Bottle",'_',false));
 			// Test for wrench
 			/*gameMap.at(42,7).addItem(new Wrench());
 			gameMap.at(42,8).addItem(new SuperMushroom());

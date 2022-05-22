@@ -8,6 +8,7 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Key;
+import game.Monologue;
 import game.Player;
 import game.Status;
 import game.actions.AttackAction;
@@ -15,6 +16,7 @@ import game.behaviours.FollowBehaviour;
 import game.consumables.SuperMushroom;
 
 public class Bowser extends Enemy{
+    private Monologue monologue;
     /**
      * Constructor.
      */
@@ -39,6 +41,7 @@ public class Bowser extends Enemy{
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        monologue.bowsermonologue();
         for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
             Action action = Behaviour.getAction(this, map);
             if (action != null)
