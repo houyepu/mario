@@ -33,6 +33,11 @@ public class PrincessPeach extends Ally {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
+            Action action = Behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
         return new DoNothingAction();
     }
 }
