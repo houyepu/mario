@@ -40,6 +40,8 @@ public class Player extends Actor implements Resettable{
 
 	public static int playerPunchDamage;
 
+	public static int fireFlowerTurnsRemaining = 0;
+
 
 	/**
 	 * Constructor.
@@ -82,9 +84,22 @@ public class Player extends Actor implements Resettable{
 				System.out.println("The Power Star's effects have worn off!"); // Print message to notify the player
 			}
 		}
+
+		if (fireFlowerTurnsRemaining > 0) {
+			fireFlowerTurnsRemaining--;
+			System.out.println();
+			if (fireFlowerTurnsRemaining <= 0) {
+				this.removeCapability(Status.FIREATTACK);
+				System.out.println("The effects of the fire flower have run out!");
+			}
+			else {
+				System.out.println(fireFlowerTurnsRemaining + " turns remain on Mario's fire flower power!");
+			}
+		}
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}
+
 
 	/**
 	 * Display character
