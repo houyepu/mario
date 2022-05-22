@@ -1,10 +1,8 @@
-package game;
+package game.jumpablegrounds;
 
-import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
-import game.highgrounds.HighGround;
 
-public class Lava extends HighGround {
+public class Lava extends JumpableGround {
     private static int LAVA_DAMAGE = 15;
 
     int jumpSuccessChance = 100;

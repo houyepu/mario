@@ -1,6 +1,5 @@
-package game.highgrounds.trees;
+package game.jumpablegrounds.trees;
 
-import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.wallet.Coin;

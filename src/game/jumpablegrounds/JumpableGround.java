@@ -1,4 +1,4 @@
-package game.highgrounds;
+package game.jumpablegrounds;
 
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
@@ -13,14 +13,14 @@ import game.wallet.Coin;
 /**
  * Abstract class representing every piece of ground that cannot be walked onto but can be jumped onto.
  */
-public abstract class HighGround extends Ground {
+public abstract class JumpableGround extends Ground {
 
     /**
      * Constructor.
      *
      * @param displayChar character to display for this type of terrain
      */
-    public HighGround(char displayChar) {
+    public JumpableGround(char displayChar) {
         super(displayChar);
     }
 

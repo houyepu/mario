@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Player;
 import game.Status;
-import game.highgrounds.HighGround;
+import game.jumpablegrounds.JumpableGround;
 
 import java.util.Random;
 
@@ -28,11 +28,11 @@ public class JumpAction extends Action {
         if (actor.hasCapability(Status.SHROOMPOWERED)) {
             map.moveActor(Player.getInstance(), location);
             outMsg = ("Successful jump to (" + location.x() + "," + location.y()+")");
-        } else if (rand.nextInt(100) <= highGround.getJumpSuccessChance()) {
+        } else if (rand.nextInt(100) <= jumpableGround.getJumpSuccessChance()) {
             map.moveActor(Player.getInstance(), location);
             outMsg = ("Successful jump to (" + location.x() + "," + location.y()+")");
         } else {
-            Player.getInstance().hurt(highGround.getJumpFailureDamage());
+            Player.getInstance().hurt(jumpableGround.getJumpFailureDamage());
             outMsg = ("Successful jump to (" + location.x() + "," + location.y()+")");
         }
         if (location.getGround().getDisplayChar() == 'L') {
@@ -57,7 +57,7 @@ public class JumpAction extends Action {
     /**
      * Used to ensure the jump is being performed on a high ground.
      */
-    protected HighGround highGround;
+    protected JumpableGround jumpableGround;
 
     /**
      * Constructor.
@@ -68,7 +68,7 @@ public class JumpAction extends Action {
     public JumpAction(Location location, String direction) {
         this.location = location;
         this.direction = direction;
-        highGround = (HighGround) location.getGround();
+        jumpableGround = (JumpableGround) location.getGround();
     }
 
     /**

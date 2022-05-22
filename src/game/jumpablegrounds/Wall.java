@@ -1,15 +1,12 @@
-package game.highgrounds;
+package game.jumpablegrounds;
 
-import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
-import game.actions.JumpAction;
 
 /**
  * Class representing a wall
  */
-public class Wall extends HighGround {
+public class Wall extends JumpableGround {
 
     /**
      * Constructor
