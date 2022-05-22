@@ -21,7 +21,7 @@ public class Bowser extends Enemy{
      * Constructor.
      */
     public Bowser() {
-        super("Bowser", 'B', 5);
+        super("Bowser", 'B', 500);
         this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
         this.addItemToInventory(new Key()); // Adds a key to the inventory of Bowser (drops when killed)
     }

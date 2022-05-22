@@ -11,6 +11,7 @@ import game.*;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.FollowBehaviour;
+import game.behaviours.MonologueBehaviour;
 import game.behaviours.WanderBehaviour;
 
 import java.util.Random;
@@ -39,6 +40,7 @@ public class Goomba extends Enemy {
         super("Goomba", 'g', 20);
         this.behaviours.put(20, new FollowBehaviour(Player.getInstance())); // Adds follow behaviour to NPC; sets as medium priority
         this.behaviours.put(30, new WanderBehaviour()); // Adds wander behaviour to NPC; sets as lowest priority
+        //this.behaviours.put(40, new MonologueBehaviour());
     }
 
     /**

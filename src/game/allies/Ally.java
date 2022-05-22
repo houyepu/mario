@@ -1,8 +1,16 @@
 package game.allies;
 
 import edu.monash.fit2099.engine.actors.Actor;
+import game.behaviours.Behaviour;
+import game.behaviours.MonologueBehaviour;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Ally extends Actor {
+
+    protected final Map<Integer, Behaviour> behaviours = new HashMap<>();
+
     /**
      * Constructor.
      *
@@ -12,5 +20,6 @@ public abstract class Ally extends Actor {
      */
     public Ally(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
+        behaviours.put(10, new MonologueBehaviour());
     }
 }

@@ -7,11 +7,10 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.Monologue;
 import game.actions.*;
 
 public class PrincessPeach extends Ally {
-    private Monologue monologue;
+
     /**
      * Constructor.
      */
@@ -34,9 +33,11 @@ public class PrincessPeach extends Ally {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        monologue.princessmonologue();
+        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
+            Action action = Behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
         return new DoNothingAction();
     }
-
-
 }
