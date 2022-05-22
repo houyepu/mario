@@ -14,6 +14,7 @@ import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.World;
 import game.actions.TeleportAction;
 import game.allies.PrincessPeach;
+import game.consumables.FireFlower;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
 import game.enemies.Bowser;
@@ -113,6 +114,8 @@ public class Application {
 
 			Actor mario = Player.getInstance();
 
+			gameMapOverWorld.at(42,9).addItem(new Fire());
+			gameMapOverWorld.at(42, 11).addItem(new FireFlower());
 			world.addPlayer(mario, gameMapOverWorld.at(42, 10));
 			gameMapOverWorld.at(43, 10).addActor(new PrincessPeach());
 			gameMapOverWorld.at(45, 10).addActor(new Bowser());
