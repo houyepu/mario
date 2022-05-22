@@ -12,6 +12,7 @@ import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.World;
+import game.actions.TeleportAction;
 import game.allies.PrincessPeach;
 import game.consumables.PowerStar;
 import game.consumables.SuperMushroom;
@@ -117,6 +118,17 @@ public class Application {
 			gameMapOverWorld.at(45, 10).addActor(new Bowser());
 
 
+			/*MartianItem rocket = new MartianItem("Rocket", '^', false);
+			rocket.addSampleAction(new MoveActorAction(mars.at(7, 2), "to Mars!"));
+			gameMap.at(1, 1).addItem(rocket);*/
+
+			WarpPipeLadder warpPipe = new WarpPipeLadder();
+			warpPipe.addSampleAction(new MoveActorAction(gameMapLavaWorld.at(2,2),"teleportation TIME!!"));
+			gameMapOverWorld.at(42,11).addItem(warpPipe);
+
+
+
+
 			//gameMap.at(34, 10).addActor(new Goomba());
 			gameMapOverWorld.at(35, 10).addActor(new Koopa());
 
@@ -128,8 +140,8 @@ public class Application {
 			// Testing out the coin
 			Coin coin = new Coin("coin",'$',true,20);
 
-			gameMapOverWorld.at(42,11).setGround(new HealthFountain());
-			gameMapOverWorld.at(42,12).setGround(new PowerFountain());
+			//gameMapOverWorld.at(42,11).setGround(new HealthFountain());
+			//gameMapOverWorld.at(42,12).setGround(new PowerFountain());
 
 			mario.addItemToInventory(new Bottle());
 			// Test for wrench

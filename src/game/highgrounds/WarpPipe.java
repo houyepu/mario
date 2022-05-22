@@ -46,6 +46,12 @@ public class WarpPipe extends HighGround {
 
     }
 
+
+    public ActionList allowableActions() {
+        ActionList actions = new ActionList();
+        return actions;
+    }
+
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
@@ -56,11 +62,11 @@ public class WarpPipe extends HighGround {
             actions.add(new JumpAction(location, direction));
         }
 
-        if (location.containsAnActor()) {
+        /*if (location.containsAnActor()) {
             if (location.getActor().getDisplayChar() == 'm' || location.getActor().getDisplayChar() == 'M') {
                 actions.add(new TeleportAction(location));
             }
-        }
+        }*/
 
         return actions;
     }

@@ -15,6 +15,10 @@ public class TeleportAction extends Action {
 
     Location entryPipeLocation;
 
+    public TeleportAction() {
+
+    }
+
 
     @Override
     public String execute(Actor actor, GameMap map) {
