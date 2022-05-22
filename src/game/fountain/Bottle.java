@@ -20,7 +20,7 @@ public class Bottle extends ConsumableItem  {
             Player.getInstance().increaseMaxHp(1000000);
         }
         else if(bottle.pop() == "PowerWater"){
-            Player.getInstance().setIntrinsicWeapon(15);
+            Player.playerPunchDamage = 15;
             System.out.println("p");
 
         }

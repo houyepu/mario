@@ -140,8 +140,8 @@ public class Application {
 			// Testing out the coin
 			Coin coin = new Coin("coin",'$',true,20);
 
-			//gameMapOverWorld.at(42,11).setGround(new HealthFountain());
-			//gameMapOverWorld.at(42,12).setGround(new PowerFountain());
+			gameMapOverWorld.at(42,11).setGround(new HealthFountain());
+			gameMapOverWorld.at(42,12).setGround(new PowerFountain());
 
 			mario.addItemToInventory(new Bottle());
 			// Test for wrench

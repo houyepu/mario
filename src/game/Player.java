@@ -38,7 +38,9 @@ public class Player extends Actor implements Resettable{
 	 */
 	private static Player player;
 
-	private int intrinsicWeapon;
+	public static int playerPunchDamage;
+
+
 	/**
 	 * Constructor.
 	 */
@@ -49,7 +51,7 @@ public class Player extends Actor implements Resettable{
 		wallet = 1000; // Initial starting amount of money
 		player = null; // Player reference is null
 		registerInstance(); // Registers this instance as resettable
-		this.intrinsicWeapon = 5;
+		playerPunchDamage = 5;
 	}
 
 	/**
@@ -124,10 +126,10 @@ public class Player extends Actor implements Resettable{
 	}
 	@Override
 	public IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(intrinsicWeapon, "punches");
+		return new IntrinsicWeapon(playerPunchDamage, "punches");
 	}
 
 	public void setIntrinsicWeapon(int intrinsicWeapon) {
-		this.intrinsicWeapon = intrinsicWeapon;
+		playerPunchDamage = intrinsicWeapon;
 	}
 }
