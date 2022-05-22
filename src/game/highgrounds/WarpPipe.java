@@ -1,7 +1,13 @@
 package game.highgrounds;
 
+import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Player;
+import game.Status;
+import game.actions.JumpAction;
+import game.actions.TeleportAction;
 import game.enemies.PiranhaPlant;
 import game.highgrounds.HighGround;
 
@@ -37,5 +43,25 @@ public class WarpPipe extends HighGround {
             System.out.println("A Piranha Plant grows from the Warp Pipe! Kill it to allow jumping into the pipe!");
             spawnedPiranhaPlant = !spawnedPiranhaPlant;
         }
+
+    }
+
+    @Override
+    public ActionList allowableActions(Actor actor, Location location, String direction) {
+        ActionList actions = new ActionList();
+
+        if (!location.containsAnActor() && !actor.hasCapability(Status.STARPOWERED)) {
+            // location must be empty to jump to.
+            // Also, star powered actors shouldn't have a jump action as they can just walk over high ground
+            actions.add(new JumpAction(location, direction));
+        }
+
+        if (location.containsAnActor()) {
+            if (location.getActor().getDisplayChar() == 'm' || location.getActor().getDisplayChar() == 'M') {
+                actions.add(new TeleportAction(location));
+            }
+        }
+
+        return actions;
     }
 }
