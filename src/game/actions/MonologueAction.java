@@ -86,7 +86,7 @@ public class MonologueAction extends Action {
             retString = monologue.get(selectRandomNum(0, monologue.size() - 1));
         }
         // Adding monologue to goombas
-        else if (speakingActor.toString().equals("Goombas")) {
+        else if (speakingActor.toString().equals("Goomba")) {
             monologue.add("Mugga mugga!");
             monologue.add("Ugha ugha... (Never gonna run around and desert you...)");
             monologue.add("Ooga-Chaka Ooga-Ooga!");

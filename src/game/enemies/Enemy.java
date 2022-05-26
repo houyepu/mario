@@ -47,10 +47,12 @@ public abstract class Enemy extends Actor implements Resettable {
             System.out.println(monologueAction.execute(this, map));
         }
 
-        for (game.behaviours.Behaviour Behaviour : behaviours.values()) {
-            Action action = Behaviour.getAction(this, map);
-            if (action != null)
-                return action;
+        for (game.behaviours.Behaviour behaviour : behaviours.values()) {
+            if (behaviour != behaviours.get(90)) {
+                Action action = behaviour.getAction(this, map);
+                if (action != null)
+                    return action;
+            }
         }
         return new DoNothingAction();
     }
