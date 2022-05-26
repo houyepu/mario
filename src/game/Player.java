@@ -9,8 +9,6 @@ import edu.monash.fit2099.engine.displays.Menu;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.actions.*;
 
-import java.util.Stack;
-
 /**
  * Class representing the Player.
  */
@@ -89,7 +87,7 @@ public class Player extends Actor implements Resettable{
 			fireFlowerTurnsRemaining--;
 			System.out.println();
 			if (fireFlowerTurnsRemaining <= 0) {
-				this.removeCapability(Status.FIREATTACK);
+				this.removeCapability(Status.FIREPOWERED);
 				System.out.println("The effects of the fire flower have run out!");
 			}
 			else {

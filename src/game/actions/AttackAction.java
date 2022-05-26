@@ -76,7 +76,7 @@ public class AttackAction extends Action {
             return "The target cannot withstand the force of the Power Star";
         }
 
-        if (actor.hasCapability(Status.FIREATTACK)) {
+        if (actor.hasCapability(Status.FIREPOWERED)) {
             map.locationOf(target).addItem(new Fire());
             System.out.println("Fire attack performed!");
         }
