@@ -110,7 +110,7 @@ public class Application {
 		gameMapOverWorld.at(42,11).addItem(warpPipe);
 
 		//gameMap.at(34, 10).addActor(new Goomba());
-		//gameMapOverWorld.at(35, 10).addActor(new Koopa());
+		gameMapOverWorld.at(35, 10).addActor(new FlyingKoopa());
 
 		//gameMap.at(35, 10).addActor(new Goomba());
 

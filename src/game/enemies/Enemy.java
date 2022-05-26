@@ -48,17 +48,19 @@ public abstract class Enemy extends Actor implements Resettable {
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         // MonologueAction execution
-        Action monologueAction = behaviours.get(90).getAction(this, map);
-        if (monologueAction != null) {
-            System.out.println(monologueAction.execute(this, map));
-        }
+        if (!behaviours.isEmpty()) {
+            Action monologueAction = behaviours.get(90).getAction(this, map);
+            if (monologueAction != null) {
+                System.out.println(monologueAction.execute(this, map));
+            }
 
-        // Return valid action from list of behaviours
-        for (game.behaviours.Behaviour behaviour : behaviours.values()) {
-            if (behaviour != behaviours.get(90)) {
-                Action action = behaviour.getAction(this, map);
-                if (action != null)
-                    return action;
+            // Return valid action from list of behaviours
+            for (game.behaviours.Behaviour behaviour : behaviours.values()) {
+                if (behaviour != behaviours.get(90)) {
+                    Action action = behaviour.getAction(this, map);
+                    if (action != null)
+                        return action;
+                }
             }
         }
         return new DoNothingAction(); // If no action found, do nothing
