@@ -41,11 +41,6 @@ public abstract class Tree extends JumpableGround implements Resettable {
         return jumpFailureDamage;
     }
 
-    @Override
-    public boolean canActorEnter(Actor actor) {
-        return actor.hasCapability(Status.STARPOWERED);
-    }
-
     /**
      * @param actor     the Actor who may be able to jump
      * @param location  the Location the actor is potentially able to jump to

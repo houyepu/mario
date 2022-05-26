@@ -34,17 +34,6 @@ public class Wall extends JumpableGround {
         return jumpFailureDamage;
     }
 
-    /**
-     * Checks if actor can enter this tile.
-     *
-     * @param actor the Actor attempting to enter
-     * @return if the Actor is able to enter
-     */
-    @Override
-    public boolean canActorEnter(Actor actor) {
-        return actor.hasCapability(Status.STARPOWERED); // only allows an actor to enter if it is affected by a power star
-    }
-
     @Override
     public boolean blocksThrownObjects() {
         return true;

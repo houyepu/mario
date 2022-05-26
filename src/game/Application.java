@@ -13,6 +13,7 @@ import edu.monash.fit2099.engine.positions.World;
 import game.allies.PrincessPeach;
 import game.consumables.FireFlower;
 import game.enemies.Bowser;
+import game.enemies.FlyingKoopa;
 import game.enemies.Koopa;
 import game.fountain.Bottle;
 import game.fountain.HealthFountain;
@@ -23,6 +24,7 @@ import game.jumpablegrounds.WarpPipe;
 import game.jumpablegrounds.trees.Mature;
 import game.jumpablegrounds.trees.Sapling;
 import game.jumpablegrounds.trees.Sprout;
+import game.toad.Toad;
 import game.wallet.Coin;
 
 /**
@@ -106,7 +108,7 @@ public class Application {
 			//gameMap.at(35, 10).addActor(new Goomba());
 
 			// Toad
-			//gameMap.at(45,10).addActor(new Toad());
+			gameMapOverWorld.at(45,10).addActor(new Toad());
 
 			// Testing out the coin
 			Coin coin = new Coin("coin",'$',true,20);

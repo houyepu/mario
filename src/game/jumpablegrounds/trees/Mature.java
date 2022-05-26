@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
+import game.enemies.FlyingKoopa;
 import game.enemies.Koopa;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Random;
 /**
  * A class that represents the final stage of a tree.
  */
-public class Mature extends Ground {
+public class Mature extends Tree {
 
     public Mature() {
         super('T');
@@ -55,9 +56,15 @@ public class Mature extends Ground {
         if (rand.nextInt(100) <= 20) { //20% chance per tick to die and turn to dirt
             location.setGround(new Dirt());
         }
-        if (rand.nextInt(100) <= 10) { //10% chance per tick to spawn a koopa
-            location.addActor(new Koopa());
-            System.out.println("Koopa Spawned!");
+        if (rand.nextInt(100) <= 15) { //10% chance per tick to spawn a koopa
+            if (rand.nextInt(100) <= 50) {
+                location.addActor(new Koopa());
+                System.out.println("Koopa Spawned!");
+            }
+            else {
+                location.addActor(new FlyingKoopa());
+                System.out.println("Flying Koopa Spawned!");
+            }
         }
         if (turnsAlive % 5 == 0) { // will attempt to produce a sprout every 5 turns
             List<Exit> surroundingLocations = location.getExits();

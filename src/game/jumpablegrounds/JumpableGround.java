@@ -47,7 +47,11 @@ public abstract class JumpableGround extends Ground {
      */
     @Override
     public boolean canActorEnter(Actor actor) {
-        return actor.hasCapability(Status.STARPOWERED);
+        if (actor.hasCapability(Status.STARPOWERED) || actor.hasCapability(Status.FLYING)) {
+            return true;
+        } else {
+            return false;
+        }
     } //only allowed to walk onto high ground without a jump if you are star powered.
 
     /**

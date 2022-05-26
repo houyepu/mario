@@ -10,4 +10,5 @@ public enum Status {
     STARPOWERED, // use this status to tell the current instance that mario has consumed a power star
     DORMANT, // use this status to tell that current instance of Koopa is dormant
     FIREPOWERED, // use this status to tell that player is equipped with fire attack
+    FLYING,
 }

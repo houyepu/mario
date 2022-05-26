@@ -10,7 +10,7 @@ import java.util.Random;
 /**
  * A class that represents the second stage of a tree.
  */
-public class Sapling extends Ground {
+public class Sapling extends Tree {
 
     public Sapling() {
         super('t');
