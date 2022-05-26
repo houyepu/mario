@@ -1,27 +1,30 @@
 package game.jumpablegrounds;
 
 import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
 import game.actions.JumpAction;
+import game.actions.TeleportAction;
 import game.enemies.PiranhaPlant;
 
 public class WarpPipe extends JumpableGround {
+
+    private boolean spawnedPiranhaPlant; // if this WarpPipe has spawned a piranha plant since it was created
+    /**
+     * Success chance (as a percentage) to jump onto this
+     */
+    private int jumpSuccessChance = 100; //teleporting always succeeds
+    /**
+     * Damage taken by failing to jump onto this object
+     */
+    private int jumpFailureDamage = 0;
+
     public WarpPipe() {
         super('c');
         spawnedPiranhaPlant = false;
     }
-    boolean spawnedPiranhaPlant; // if this WarpPipe has spawned a piranha plant since it was created
-
-    /**
-     * Success chance (as a percentage) to jump onto this
-     */
-    int jumpSuccessChance = 100; //teleporting always succeeds
-    /**
-     * Damage taken by failing to jump onto this object
-     */
-    int jumpFailureDamage = 0;
 
     public int getJumpSuccessChance() {
         return jumpSuccessChance;
@@ -41,12 +44,6 @@ public class WarpPipe extends JumpableGround {
         }
     }
 
-
-    public ActionList allowableActions() {
-        ActionList actions = new ActionList();
-        return actions;
-    }
-
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
@@ -57,9 +54,9 @@ public class WarpPipe extends JumpableGround {
             actions.add(new JumpAction(location, direction));
         }
 
-        /*if (location.containsAnActor()) {
-            if (location.getActor().getDisplayChar() == 'm' || location.getActor().getDisplayChar() == 'M') {
-                actions.add(new TeleportAction(location));
+       /* if (location.containsAnActor()) {
+            if (location.getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
+                actions.add(new TeleportAction(connectingPipeLocation));
             }
         }*/
 

@@ -2,6 +2,7 @@ package game;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
@@ -35,11 +36,11 @@ public class Application {
 
 	public static void main(String[] args) {
 
-			World world = new World(new Display());
+		World world = new World(new Display());
 
-			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Mature(), new Sapling(), new Sprout(), new Lava(), new WarpPipe(), new HealthFountain(), new PowerFountain());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Mature(), new Sapling(), new Sprout(), new Lava(), new WarpPipe(), new HealthFountain(), new PowerFountain());
 
-			List<String> mapOverWorld = Arrays.asList(
+		List<String> mapOverWorld = Arrays.asList(
 				"..........................................##....................................",
 				"............+...............................#...................................",
 				"............................................#...................................",
@@ -76,55 +77,61 @@ public class Application {
 				"...............................................______#",
 				"...............................................#######");
 
-			GameMap gameMapOverWorld;
-			GameMap gameMapLavaWorld;
-			gameMapOverWorld = new GameMap(groundFactory, mapOverWorld);
-			gameMapLavaWorld = new GameMap(groundFactory, mapLavaWorld);
-			world.addGameMap(gameMapOverWorld);
-			world.addGameMap(gameMapLavaWorld);
+		GameMap gameMapOverWorld;
+		GameMap gameMapLavaWorld;
+		gameMapOverWorld = new GameMap(groundFactory, mapOverWorld);
+		gameMapLavaWorld = new GameMap(groundFactory, mapLavaWorld);
+		world.addGameMap(gameMapOverWorld);
+		world.addGameMap(gameMapLavaWorld);
 
-			Location lavaTeleportLocation = gameMapLavaWorld.at(1,1);
+		for (int x : gameMapOverWorld.getXRange()) {
+			for (int y : gameMapOverWorld.getYRange()) {
+				if (new Random().nextInt(100) <= 1) {
+					gameMapOverWorld.at(x, y).setGround(new Sprout());
+				}
+			}
+		}
 
-			Actor mario = Player.getInstance();
+		Actor mario = Player.getInstance();
 
-			gameMapOverWorld.at(42,9).addItem(new Fire());
-			gameMapOverWorld.at(42, 11).addItem(new FireFlower());
-			world.addPlayer(mario, gameMapOverWorld.at(42, 10));
-			gameMapLavaWorld.at(46, 1).addActor(new PrincessPeach());
-			gameMapLavaWorld.at(51, 2).addActor(new Bowser());
+		gameMapOverWorld.at(42,9).addItem(new Fire());
+		gameMapOverWorld.at(42, 11).addItem(new FireFlower());
+		world.addPlayer(mario, gameMapOverWorld.at(42, 10));
+		gameMapLavaWorld.at(46, 1).addActor(new PrincessPeach());
+		gameMapLavaWorld.at(51, 2).addActor(new Bowser());
 
-			WarpPipeLadder warpPipe = new WarpPipeLadder();
-			warpPipe.addSampleAction(new MoveActorAction(gameMapLavaWorld.at(2,2),"to the final lava map!"));
+		WarpPipeLadder warpPipe = new WarpPipeLadder();
+		warpPipe.addSampleAction(new MoveActorAction(gameMapLavaWorld.at(2,2),"to the final lava map!"));
 
-			WarpPipeLadder warpPipe2 = new WarpPipeLadder();
-			warpPipe2.addSampleAction(new MoveActorAction(gameMapOverWorld.at(42,11),"back to the first map!"));
+		WarpPipeLadder warpPipe2 = new WarpPipeLadder();
+		warpPipe2.addSampleAction(new MoveActorAction(gameMapOverWorld.at(42,11),"back to the first map!"));
 
-			gameMapLavaWorld.at(2,2).addItem(warpPipe2);
-			gameMapOverWorld.at(42,11).addItem(warpPipe);
+		gameMapLavaWorld.at(2,2).addItem(warpPipe2);
+		gameMapOverWorld.at(42,11).addItem(warpPipe);
 
-			//gameMap.at(34, 10).addActor(new Goomba());
-			gameMapOverWorld.at(35, 10).addActor(new Koopa());
+		//gameMap.at(34, 10).addActor(new Goomba());
+		gameMapOverWorld.at(35, 10).addActor(new Koopa());
 
-			//gameMap.at(35, 10).addActor(new Goomba());
+		//gameMap.at(35, 10).addActor(new Goomba());
 
-			// Toad
-			gameMapOverWorld.at(45,10).addActor(new Toad());
+		// Toad
+		gameMapOverWorld.at(45,10).addActor(new Toad());
 
-			// Testing out the coin
-			Coin coin = new Coin("coin",'$',true,20);
+		// Testing out the coin
+		Coin coin = new Coin("coin",'$',true,20);
 
-			gameMapOverWorld.at(42,11).setGround(new HealthFountain());
-			gameMapOverWorld.at(42,12).setGround(new PowerFountain());
-			gameMapOverWorld.at(42,13).addItem(new FireFlower());
-			mario.addItemToInventory(new Bottle());
+		gameMapOverWorld.at(42,11).setGround(new HealthFountain());
+		gameMapOverWorld.at(42,12).setGround(new PowerFountain());
+		gameMapOverWorld.at(42,13).addItem(new FireFlower());
+		mario.addItemToInventory(new Bottle());
 
-			// Test for wrench
-			/*gameMap.at(42,7).addItem(new Wrench());
-			gameMap.at(42,8).addItem(new SuperMushroom());
-			gameMap.at(42,9).addItem(new PowerStar());
-			gameMap.at(44,9).addItem(new Kea
-			y());*/
+		// Test for wrench
+		/*gameMap.at(42,7).addItem(new Wrench());
+		gameMap.at(42,8).addItem(new SuperMushroom());
+		gameMap.at(42,9).addItem(new PowerStar());
+		gameMap.at(44,9).addItem(new Kea
+		y());*/
 
-			world.run();
+		world.run();
 	}
 }
