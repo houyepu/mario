@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Status;
 import game.actions.AttackAction;
 import game.behaviours.Behaviour;
 
@@ -46,7 +47,7 @@ public class AttackBehaviour implements Behaviour {
         // Check to see if there is a player to attack within the immediate surroundings
         for (Exit exit : here.getExits()) {
             Location destination = exit.getDestination();
-            if (destination.containsAnActor()) {
+            if (destination.containsAnActor() && destination.getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
                 return new AttackAction(player, exit.getName());
             }
         }

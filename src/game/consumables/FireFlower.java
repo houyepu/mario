@@ -16,6 +16,5 @@ public class FireFlower extends ConsumableItem{
         Player.getInstance().addCapability(Status.FIREPOWERED); // The player now is going to reap the benefits of this item
         System.out.println("MARIO HAS FIRE ATTACK"); // P
         Player.fireFlowerTurnsRemaining = 3;
-
     }
 }

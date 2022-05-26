@@ -111,6 +111,11 @@ public class AttackAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " attacks " + target + " at " + direction;
+        if (actor.hasCapability(Status.FIREPOWERED)) {
+            return actor + " attacks " + target + " at " + direction + " with fire!";
+        }
+        else {
+            return actor + " attacks " + target + " at " + direction;
+        }
     }
 }

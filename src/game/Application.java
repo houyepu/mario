@@ -83,7 +83,6 @@ public class Application {
 
 			Location lavaTeleportLocation = gameMapLavaWorld.at(1,1);
 
-
 			Actor mario = Player.getInstance();
 
 			gameMapOverWorld.at(42,9).addItem(new Fire());
@@ -92,22 +91,14 @@ public class Application {
 			gameMapLavaWorld.at(46, 1).addActor(new PrincessPeach());
 			gameMapLavaWorld.at(51, 2).addActor(new Bowser());
 
-
-			/*MartianItem rocket = new MartianItem("Rocket", '^', false);
-			rocket.addSampleAction(new MoveActorAction(mars.at(7, 2), "to Mars!"));
-			gameMap.at(1, 1).addItem(rocket);*/
-
 			WarpPipeLadder warpPipe = new WarpPipeLadder();
 			warpPipe.addSampleAction(new MoveActorAction(gameMapLavaWorld.at(2,2),"to the final lava map!"));
 
 			WarpPipeLadder warpPipe2 = new WarpPipeLadder();
 			warpPipe2.addSampleAction(new MoveActorAction(gameMapOverWorld.at(42,11),"back to the first map!"));
-			gameMapLavaWorld.at(1,1).addItem(warpPipe2);
 
+			gameMapLavaWorld.at(2,2).addItem(warpPipe2);
 			gameMapOverWorld.at(42,11).addItem(warpPipe);
-
-
-
 
 			//gameMap.at(34, 10).addActor(new Goomba());
 			gameMapOverWorld.at(35, 10).addActor(new Koopa());

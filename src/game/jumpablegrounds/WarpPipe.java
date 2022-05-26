@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
 import game.actions.JumpAction;
+import game.enemies.PiranhaPlant;
 
 public class WarpPipe extends JumpableGround {
     public WarpPipe() {
@@ -34,11 +35,10 @@ public class WarpPipe extends JumpableGround {
     public void tick(Location location) {
         super.tick(location);
         if (!spawnedPiranhaPlant){
-            //location.addActor(new PiranhaPlant());
+            location.addActor(new PiranhaPlant());
             System.out.println("A Piranha Plant grows from the Warp Pipe! Kill it to allow jumping into the pipe!");
             spawnedPiranhaPlant = !spawnedPiranhaPlant;
         }
-
     }
 
 

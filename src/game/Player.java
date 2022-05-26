@@ -38,7 +38,7 @@ public class Player extends Actor implements Resettable{
 
 	public static int playerPunchDamage;
 
-	public static int fireFlowerTurnsRemaining = 0;
+	public static int fireFlowerTurnsRemaining;
 
 
 	/**
@@ -52,6 +52,7 @@ public class Player extends Actor implements Resettable{
 		player = null; // Player reference is null
 		registerInstance(); // Registers this instance as resettable
 		playerPunchDamage = 5;
+		fireFlowerTurnsRemaining = 5;
 	}
 
 	/**
