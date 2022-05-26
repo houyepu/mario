@@ -49,7 +49,7 @@ public class Application {
 				"................................................#...............................",
 				".................+................................#.............................",
 				".................................................##.............................",
-				"............................................Lc..##..............................",
+				".............................................c..##..............................",
 				".........+..............................+#____####..............................",
 				".......................................+#_____###...............................",
 				".......................................+#______###..............................",
@@ -94,7 +94,7 @@ public class Application {
 
 		Actor mario = Player.getInstance();
 
-		gameMapOverWorld.at(42,9).addItem(new Fire());
+		//gameMapOverWorld.at(42,9).addItem(new Fire());
 		gameMapOverWorld.at(42, 11).addItem(new FireFlower());
 		world.addPlayer(mario, gameMapOverWorld.at(42, 10));
 		gameMapLavaWorld.at(46, 1).addActor(new PrincessPeach());
@@ -110,7 +110,7 @@ public class Application {
 		gameMapOverWorld.at(42,11).addItem(warpPipe);
 
 		//gameMap.at(34, 10).addActor(new Goomba());
-		gameMapOverWorld.at(35, 10).addActor(new Koopa());
+		//gameMapOverWorld.at(35, 10).addActor(new Koopa());
 
 		//gameMap.at(35, 10).addActor(new Goomba());
 

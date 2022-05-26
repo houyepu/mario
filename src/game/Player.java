@@ -123,11 +123,6 @@ public class Player extends Actor implements Resettable{
 	}
 
 	/**
-	 * Base attack damage increase
-	 * @return new intrinsic weapon
-	 */
-
-	/**
 	 * Resettable implementation; resets players attributes
 	 * @param map The map on which this instance exists
 	 */
@@ -136,6 +131,7 @@ public class Player extends Actor implements Resettable{
 		resetMaxHp(100); // Resets MaxHP to be 100 and heals to that amount
 		this.removeCapability(Status.SHROOMPOWERED); // Removes the SHROOMPOWERED status if applicable
 		this.removeCapability(Status.STARPOWERED); // Removes the STARPOWERED status if applicable
+		this.removeCapability(Status.FIREPOWERED); // Removes the FIREPOWERED status if applicable
 		System.out.println("Mario's power-ups have warn off"); // Print notification message
 	}
 	@Override

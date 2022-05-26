@@ -47,12 +47,8 @@ public abstract class JumpableGround extends Ground {
      */
     @Override
     public boolean canActorEnter(Actor actor) {
-        if (actor.hasCapability(Status.STARPOWERED) || actor.hasCapability(Status.FLYING)) {
-            return true;
-        } else {
-            return false;
-        }
-    } //only allowed to walk onto high ground without a jump if you are star powered.
+        return actor.hasCapability(Status.STARPOWERED) || actor.hasCapability(Status.FLYING);
+    } //only allowed to walk onto high ground without a jump if you are STARPOWERED or FLYING
 
     /**
      * @param actor     the Actor who may be able to jump
@@ -78,8 +74,8 @@ public abstract class JumpableGround extends Ground {
     public void tick(Location location) {
         super.tick(location);
 
-        if (location.containsAnActor() && Player.getInstance().hasCapability(Status.STARPOWERED)) {
-            location.setGround(new Dirt()); //if there is a star powered player on a high ground tile, destroy the highground (replace with dirt)
+        if (location.containsAnActor() && location.getActor().hasCapability(Status.STARPOWERED)) {
+            location.setGround(new Dirt()); //if there is a STARPOWERED player on a high ground tile, destroy the highground (replace with dirt)
             location.addItem(new Coin("coin", '$', true, 5)); //and then spawn a $5 coin
         }
     }

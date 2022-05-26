@@ -76,8 +76,9 @@ public class AttackAction extends Action {
             return "The target cannot withstand the force of the Power Star";
         }
 
+        // Create a new fire at the location of the target if the attacking actor is FIREPOWERED
         if (actor.hasCapability(Status.FIREPOWERED)) {
-            map.locationOf(target).addItem(new Fire());
+            map.locationOf(target).addItem(new Fire()); // Create the fire
             System.out.println("Fire attack performed!");
         }
 
@@ -111,6 +112,7 @@ public class AttackAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
+        // Checks to see if actor is FIREPOWERED so that the display message reflects that status
         if (actor.hasCapability(Status.FIREPOWERED)) {
             return actor + " attacks " + target + " at " + direction + " with fire!";
         }

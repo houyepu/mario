@@ -12,6 +12,11 @@ public class Key extends Item {
         super("Key", 'k', true);
     }
 
+    /**
+     * Make it so this item can't be dropped
+     * @param actor     Actor doing the dropping
+     * @return DropAction
+     */
     @Override
     public DropItemAction getDropAction(Actor actor) {
         if (actor.getInventory().contains(this) && actor.hasCapability(Status.HOSTILE_TO_ENEMY)) {

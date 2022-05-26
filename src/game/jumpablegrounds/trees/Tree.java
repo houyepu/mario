@@ -4,10 +4,14 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Dirt;
 import game.Resettable;
 import game.Status;
 import game.actions.JumpAction;
 import game.jumpablegrounds.JumpableGround;
+
+import javax.print.DocFlavor;
+import java.util.Random;
 
 /**
  * Abstract class representing different stages of the tree lifecycle.
@@ -21,7 +25,8 @@ public abstract class Tree extends JumpableGround implements Resettable {
      */
     public Tree(char displayChar) {
         super(displayChar);
-        registerInstance();
+        this.registerInstance();
+        this.addCapability(Status.RESETTABLEGROUND);
     }
 
     /**
@@ -63,8 +68,18 @@ public abstract class Tree extends JumpableGround implements Resettable {
         return ("Attempt jump " + direction + " to " + location.getGround());
     }
 
+    /**
+     * Resets any instance of Tree back to dirt based upon probability
+     * @param map       Map on which the trees exist
+     */
     @Override
     public void resetInstance(GameMap map) {
-
+        for (int x : map.getXRange()) {
+            for (int y : map.getYRange()) {
+                if (new Random().nextInt(100) <= 1 && map.at(x, y).getGround().hasCapability(Status.RESETTABLEGROUND)) {
+                    map.at(x, y).setGround(new Dirt());
+                }
+            }
+        }
     }
 }

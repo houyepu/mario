@@ -6,39 +6,43 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actions.MonologueAction;
 
+/**
+ * Special behaviour for NPCs/AI that allows them to speak automatically
+ */
 public class MonologueBehaviour implements Behaviour {
     /**
-     * A talk timer to keep track the monologue each round
+     * A talk timer counting down to when the actor should speak
      */
     private int talkTimer;
 
     /**
-     * talke timer will start as 1
+     * Constructor
      */
     public MonologueBehaviour() {
-        talkTimer = 1;
+        talkTimer = 1; // Set the talk timer to one so that actor does not speak on first turn (and then alternates)
     }
 
     /**
-     * This is a loop for checking each every 2nd turn is monologue action created
-     * @param actor the Actor acting
+     * This is a loop for checking each every 2nd turn a MonologueAction is created (to be subsequently executed)
+     *
+     * @param actor the Actor speaking
      * @param map   the GameMap containing the Actor
-     * @return Do nothing action / MonologueAction
+     * @return The action to perform (MonologueAction or null)
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
+        // If the map does not contain the speaking actor; return null
         if (!map.contains(actor))
             return null;
-        // talk timer if talk timer is less than 0 then it will reset back to 1
+
+        // If it is time for the actor to talk
         if (talkTimer <= 0) {
-            talkTimer = 1;
-            return new MonologueAction(actor);
+            talkTimer = 1; // Reset talk timer to 1
+            return new MonologueAction(actor); // Return MonologueAction with actor as parameter so that dialogue is correctly selected
+        } else {
+            talkTimer--; // Decrement the talk timer so that the actor will speak next turn
         }
-        // else it will reduce by 1
-        else {
-            talkTimer--;
-        }
-        // do nothing
-        return null;
+
+        return null; // If the timer hasn't reached 0 yet or if all else fails
     }
 }

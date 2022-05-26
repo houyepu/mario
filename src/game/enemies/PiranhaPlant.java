@@ -14,8 +14,14 @@ import game.behaviours.AttackBehaviour;
 import game.behaviours.FollowBehaviour;
 import game.behaviours.WanderBehaviour;
 
-public class PiranhaPlant extends Enemy{
+/**
+ * A plant that likes to chomp; guards the pipes
+ */
+public class PiranhaPlant extends Enemy {
 
+    /**
+     * Constructor
+     */
     public PiranhaPlant() {
         super("Piranha Plant", 'Y', 150);
     }
@@ -29,9 +35,6 @@ public class PiranhaPlant extends Enemy{
     }
 
     /**
-     * At the moment, we only make it can be attacked by Player.
-     * You can do something else with this method.
-     *
      * @param otherActor the Actor that might perform an action.
      * @param direction  String representing the direction of the other Actor
      * @param map        current GameMap

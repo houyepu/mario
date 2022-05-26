@@ -7,10 +7,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Player;
+import game.Resettable;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
-import game.Resettable;
-import game.behaviours.FollowBehaviour;
 import game.behaviours.MonologueBehaviour;
 
 import java.util.HashMap;
@@ -20,7 +19,6 @@ import java.util.Map;
  * Class representing enemies
  */
 public abstract class Enemy extends Actor implements Resettable {
-
     /**
      * A map of behaviours (actions) which the AI can perform automatically
      */
@@ -40,13 +38,22 @@ public abstract class Enemy extends Actor implements Resettable {
         this.behaviours.put(90, new MonologueBehaviour());
     }
 
+    /**
+     * @param actions    collection of possible Actions for this Actor
+     * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
+     * @param map        the map containing the Actor
+     * @param display    the I/O object to which messages may be written
+     * @return Action for Enemy to take
+     */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        Action monologueAction =  behaviours.get(90).getAction(this, map);
+        // MonologueAction execution
+        Action monologueAction = behaviours.get(90).getAction(this, map);
         if (monologueAction != null) {
             System.out.println(monologueAction.execute(this, map));
         }
 
+        // Return valid action from list of behaviours
         for (game.behaviours.Behaviour behaviour : behaviours.values()) {
             if (behaviour != behaviours.get(90)) {
                 Action action = behaviour.getAction(this, map);
@@ -54,7 +61,7 @@ public abstract class Enemy extends Actor implements Resettable {
                     return action;
             }
         }
-        return new DoNothingAction();
+        return new DoNothingAction(); // If no action found, do nothing
     }
 
     /**
